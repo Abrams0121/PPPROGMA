@@ -185,6 +185,12 @@
     <Compile Include="Forms\EditForms\TransportEdit.Designer.cs">
       <DependentUpon>TransportEdit.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainForms\Accomodation.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForms\Accomodation.Designer.cs">
+      <DependentUpon>Accomodation.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForms\CombinedTours.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -240,6 +246,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditForms\TransportEdit.resx">
       <DependentUpon>TransportEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForms\Accomodation.resx">
+      <DependentUpon>Accomodation.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForms\CombinedTours.resx">
       <DependentUpon>CombinedTours.cs</DependentUpon>
