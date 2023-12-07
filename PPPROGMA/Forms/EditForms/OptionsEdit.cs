@@ -1,6 +1,4 @@
-﻿using PPPROGMA.Classes.CRUD;
-using PPPROGMA.Classes.Models;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,12 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class SpravTransportTypeForm : Form
+    public partial class OptionsEditForm : Form
     {
+        bool Changing = false;
 
-        List<Sprav_transport_type> sprav_Transport_Types => Read.TransportTypeUpdate();
-        
-        public SpravTransportTypeForm()
+        int id;
+
+        public OptionsEditForm()
         {
             InitializeComponent();
         }

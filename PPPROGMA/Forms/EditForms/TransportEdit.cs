@@ -10,13 +10,13 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class TableEditForm : Form
+    public partial class TransportEditForm : Form
     {
         bool Changing = false;
 
         int id;
         
-        public TableEditForm()
+        public TransportEditForm()
         {
             InitializeComponent();
         }

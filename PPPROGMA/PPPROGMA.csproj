@@ -154,7 +154,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Classes\CRUD\CreateDbWork.cs" />
+    <Compile Include="Classes\CRUD\Read.cs" />
     <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Classes\Models\Accommodation.cs" />
     <Compile Include="Classes\Models\Autorisation.cs" />
@@ -178,6 +178,42 @@
     </Compile>
     <Compile Include="AvtorisationForm.Designer.cs">
       <DependentUpon>AvtorisationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditForms\AccomodationEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditForms\AccomodationEdit.Designer.cs">
+      <DependentUpon>AccomodationEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditForms\CombinedToursEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditForms\CombinedToursEdit.Designer.cs">
+      <DependentUpon>CombinedToursEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditForms\FoodEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditForms\FoodEdit.Designer.cs">
+      <DependentUpon>FoodEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditForms\GeneralOptionsEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditForms\GeneralOptionsEdit.Designer.cs">
+      <DependentUpon>GeneralOptionsEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditForms\OptionsEdit.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditForms\OptionsEdit.Designer.cs">
+      <DependentUpon>OptionsEdit.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\EditForms\TourConstructor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\EditForms\TourConstructor.Designer.cs">
+      <DependentUpon>TourConstructor.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EditForms\TransportEdit.cs">
       <SubType>Form</SubType>
@@ -215,6 +251,12 @@
     <Compile Include="Forms\MainForms\GeneralOptions.Designer.cs">
       <DependentUpon>GeneralOptions.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\MainForms\Tours.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\MainForms\Tours.Designer.cs">
+      <DependentUpon>Tours.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\MainForms\Transport.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -244,6 +286,24 @@
     <EmbeddedResource Include="AvtorisationForm.resx">
       <DependentUpon>AvtorisationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditForms\AccomodationEdit.resx">
+      <DependentUpon>AccomodationEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditForms\CombinedToursEdit.resx">
+      <DependentUpon>CombinedToursEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditForms\FoodEdit.resx">
+      <DependentUpon>FoodEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditForms\GeneralOptionsEdit.resx">
+      <DependentUpon>GeneralOptionsEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditForms\OptionsEdit.resx">
+      <DependentUpon>OptionsEdit.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\EditForms\TourConstructor.resx">
+      <DependentUpon>TourConstructor.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditForms\TransportEdit.resx">
       <DependentUpon>TransportEdit.cs</DependentUpon>
     </EmbeddedResource>
@@ -261,6 +321,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForms\GeneralOptions.resx">
       <DependentUpon>GeneralOptions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\MainForms\Tours.resx">
+      <DependentUpon>Tours.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForms\Transport.resx">
       <DependentUpon>Transport.cs</DependentUpon>
@@ -299,7 +362,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="NewFolder1\" />
+    <Folder Include="Sprav\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">

@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsFormsApp1
 {
-    partial class TableEditForm
+    partial class TransportEditForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -38,7 +38,10 @@ namespace WindowsFormsApp1
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlBorder.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -105,7 +108,7 @@ namespace WindowsFormsApp1
             // ReturnButton
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReturnButton.Location = new System.Drawing.Point(701, 491);
+            this.ReturnButton.Location = new System.Drawing.Point(701, 439);
             this.ReturnButton.Margin = new System.Windows.Forms.Padding(2);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(78, 29);
@@ -116,7 +119,7 @@ namespace WindowsFormsApp1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(152, 427);
+            this.button1.Location = new System.Drawing.Point(211, 437);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(110, 32);
             this.button1.TabIndex = 7;
@@ -137,12 +140,40 @@ namespace WindowsFormsApp1
             this.textBox2.Size = new System.Drawing.Size(352, 26);
             this.textBox2.TabIndex = 9;
             // 
-            // textBox3
+            // comboBox1
             // 
-            this.textBox3.Location = new System.Drawing.Point(95, 238);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(352, 26);
-            this.textBox3.TabIndex = 10;
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(95, 249);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(352, 26);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(92, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 18);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(92, 158);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 18);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(92, 228);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 18);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "label4";
             // 
             // TableEditForm
             // 
@@ -150,7 +181,10 @@ namespace WindowsFormsApp1
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(790, 531);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button1);
@@ -180,7 +214,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsFormsApp1
 {
-    partial class AccomodationForm
+    partial class TourConstructorForm
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -34,15 +34,15 @@ namespace WindowsFormsApp1
             this.BtnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.AddButton = new System.Windows.Forms.Button();
-            this.ChangeButton = new System.Windows.Forms.Button();
-            this.DeleteButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlBorder.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBorder
@@ -55,7 +55,7 @@ namespace WindowsFormsApp1
             this.pnlBorder.Location = new System.Drawing.Point(0, 0);
             this.pnlBorder.Margin = new System.Windows.Forms.Padding(2);
             this.pnlBorder.Name = "pnlBorder";
-            this.pnlBorder.Size = new System.Drawing.Size(1042, 23);
+            this.pnlBorder.Size = new System.Drawing.Size(790, 23);
             this.pnlBorder.TabIndex = 0;
             // 
             // label1
@@ -75,7 +75,7 @@ namespace WindowsFormsApp1
             this.BtnClose.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnClose.Location = new System.Drawing.Point(998, 0);
+            this.BtnClose.Location = new System.Drawing.Point(746, 0);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(2);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(22, 23);
@@ -89,7 +89,7 @@ namespace WindowsFormsApp1
             this.btnMinimize.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMinimize.Location = new System.Drawing.Point(1020, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(768, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(22, 23);
@@ -105,71 +105,10 @@ namespace WindowsFormsApp1
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
-            this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Left;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 23);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(735, 508);
-            this.dataGridView2.TabIndex = 2;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Заголовок";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 300;
-            // 
-            // AddButton
-            // 
-            this.AddButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddButton.Location = new System.Drawing.Point(855, 64);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(2);
-            this.AddButton.Name = "AddButton";
-            this.AddButton.Size = new System.Drawing.Size(98, 29);
-            this.AddButton.TabIndex = 3;
-            this.AddButton.Text = "Добавить";
-            this.AddButton.UseVisualStyleBackColor = true;
-            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
-            // 
-            // ChangeButton
-            // 
-            this.ChangeButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ChangeButton.Location = new System.Drawing.Point(855, 106);
-            this.ChangeButton.Margin = new System.Windows.Forms.Padding(2);
-            this.ChangeButton.Name = "ChangeButton";
-            this.ChangeButton.Size = new System.Drawing.Size(98, 29);
-            this.ChangeButton.TabIndex = 4;
-            this.ChangeButton.Text = "Изменить";
-            this.ChangeButton.UseVisualStyleBackColor = true;
-            this.ChangeButton.Click += new System.EventHandler(this.ChangeButton_Click);
-            // 
-            // DeleteButton
-            // 
-            this.DeleteButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteButton.Location = new System.Drawing.Point(855, 147);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
-            this.DeleteButton.Name = "DeleteButton";
-            this.DeleteButton.Size = new System.Drawing.Size(98, 29);
-            this.DeleteButton.TabIndex = 5;
-            this.DeleteButton.Text = "Удалить";
-            this.DeleteButton.UseVisualStyleBackColor = true;
-            this.DeleteButton.Click += new System.EventHandler(this.DeleteButton_Click);
-            // 
             // ReturnButton
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReturnButton.Location = new System.Drawing.Point(935, 365);
+            this.ReturnButton.Location = new System.Drawing.Point(701, 439);
             this.ReturnButton.Margin = new System.Windows.Forms.Padding(2);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(78, 29);
@@ -178,28 +117,89 @@ namespace WindowsFormsApp1
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
-            // AccomodationForm
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(211, 437);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(110, 32);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Сохранить";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(95, 115);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(352, 26);
+            this.textBox1.TabIndex = 8;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(95, 179);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(352, 26);
+            this.textBox2.TabIndex = 9;
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(95, 249);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(352, 26);
+            this.comboBox1.TabIndex = 10;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(92, 83);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(51, 18);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "label2";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(92, 158);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(51, 18);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "label3";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(92, 228);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(51, 18);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "label4";
+            // 
+            // TableEditForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1042, 531);
+            this.ClientSize = new System.Drawing.Size(790, 531);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ReturnButton);
-            this.Controls.Add(this.DeleteButton);
-            this.Controls.Add(this.ChangeButton);
-            this.Controls.Add(this.AddButton);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.pnlBorder);
             this.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "AccomodationForm";
+            this.Name = "TableEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sprav_table_form";
             this.pnlBorder.ResumeLayout(false);
             this.pnlBorder.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -210,13 +210,14 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnMinimize;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button AddButton;
-        private System.Windows.Forms.Button ChangeButton;
-        private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button ReturnButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

@@ -29,7 +29,6 @@ namespace WindowsFormsApp1
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             this.pnlBorder = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
             this.BtnClose = new System.Windows.Forms.Button();
@@ -53,7 +52,7 @@ namespace WindowsFormsApp1
             this.pnlBorder.Controls.Add(this.btnMinimize);
             this.pnlBorder.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorder.Location = new System.Drawing.Point(0, 0);
-            this.pnlBorder.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.pnlBorder.Margin = new System.Windows.Forms.Padding(2);
             this.pnlBorder.Name = "pnlBorder";
             this.pnlBorder.Size = new System.Drawing.Size(450, 23);
             this.pnlBorder.TabIndex = 0;
@@ -77,7 +76,7 @@ namespace WindowsFormsApp1
             this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.BtnClose.Location = new System.Drawing.Point(406, 0);
-            this.BtnClose.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.BtnClose.Margin = new System.Windows.Forms.Padding(2);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(22, 23);
             this.BtnClose.TabIndex = 1;
@@ -91,7 +90,7 @@ namespace WindowsFormsApp1
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.btnMinimize.Location = new System.Drawing.Point(428, 0);
-            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(22, 23);
             this.btnMinimize.TabIndex = 0;
@@ -109,17 +108,9 @@ namespace WindowsFormsApp1
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Column1,
             this.Column2});
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Window;
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.ControlText;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.dataGridView2.DefaultCellStyle = dataGridViewCellStyle1;
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView2.Location = new System.Drawing.Point(0, 23);
-            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(205, 368);
             this.dataGridView2.TabIndex = 2;
@@ -140,7 +131,7 @@ namespace WindowsFormsApp1
             // 
             this.AddButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.AddButton.Location = new System.Drawing.Point(225, 55);
-            this.AddButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(98, 29);
             this.AddButton.TabIndex = 3;
@@ -152,7 +143,7 @@ namespace WindowsFormsApp1
             // 
             this.ChangeButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ChangeButton.Location = new System.Drawing.Point(225, 96);
-            this.ChangeButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ChangeButton.Margin = new System.Windows.Forms.Padding(2);
             this.ChangeButton.Name = "ChangeButton";
             this.ChangeButton.Size = new System.Drawing.Size(98, 29);
             this.ChangeButton.TabIndex = 4;
@@ -164,7 +155,7 @@ namespace WindowsFormsApp1
             // 
             this.DeleteButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.DeleteButton.Location = new System.Drawing.Point(225, 138);
-            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(98, 29);
             this.DeleteButton.TabIndex = 5;
@@ -176,7 +167,7 @@ namespace WindowsFormsApp1
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Verdana", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.ReturnButton.Location = new System.Drawing.Point(349, 353);
-            this.ReturnButton.Margin = new System.Windows.Forms.Padding(2, 2, 2, 2);
+            this.ReturnButton.Margin = new System.Windows.Forms.Padding(2);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(78, 29);
             this.ReturnButton.TabIndex = 6;
@@ -198,7 +189,7 @@ namespace WindowsFormsApp1
             this.Controls.Add(this.pnlBorder);
             this.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Margin = new System.Windows.Forms.Padding(4, 4, 4, 4);
+            this.Margin = new System.Windows.Forms.Padding(4);
             this.Name = "SpravTransportTypeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sprav_table_form";
