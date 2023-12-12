@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class OptionsTable : Form
+    public partial class GeneralServicesTable : Form
     {
-        public OptionsTable()
+        public GeneralServicesTable()
         {
             InitializeComponent();
         }

@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PPPROGMA.Classes.CRUD.Service;
+using PPPROGMA;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,13 @@ namespace WindowsFormsApp1
 {
     public partial class AccomodationForm : Form
     {
+        List<Accommodation> accommodations;
+
         public AccomodationForm()
         {
             InitializeComponent();
+            accommodations = Program.BD.accommodations.ToList();
+            dataGridView2.DataSource = accommodations;
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -29,7 +35,9 @@ namespace WindowsFormsApp1
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-
+            AccomodationEditForm accomodationEditForm = new AccomodationEditForm();
+            accomodationEditForm.ShowDialog();
+            accommodations = Program.BD.accommodations.ToList();
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -39,16 +47,44 @@ namespace WindowsFormsApp1
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            int id;
+            if (!int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            {
+                Utils.Error("Невозможно удалить пустую строку");
+                return;
+            }
+            ServiceAccomodation BDWORK = new ServiceAccomodation();
+
+            var accomodation = Program.BD.accommodations.FirstOrDefault(x => x.idAccommodation == int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
             string text = "Вы уверены что хотите удалить запись?";
             if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                //
+                BDWORK.delete(accomodation);
+                accommodations = Program.BD.accommodations.ToList();
             }
 
 
         }
 
         private void ChangeButton_Click(object sender, EventArgs e)
+        {
+            int id;
+            if (!int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            {
+                Utils.Error("Невозможно удалить пустую строку");
+                return;
+            }
+
+            AccomodationEditForm accomodationEditForm = new AccomodationEditForm()
+            {
+                changing = true,
+                id = id
+            };
+            accomodationEditForm.ShowDialog();
+            accommodations = Program.BD.accommodations.ToList();
+        }
+
+        private void AccomodationForm_Load(object sender, EventArgs e)
         {
 
         }

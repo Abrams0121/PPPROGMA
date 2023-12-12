@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PPPROGMA;
+using PPPROGMA.Classes.Models;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,12 @@ namespace WindowsFormsApp1
 {
     public partial class CombinedToursTable : Form
     {
+        List<Combinetion_of_tours> combinetion_Of_Tours;
         public CombinedToursTable()
         {
             InitializeComponent();
+            combinetion_Of_Tours = Program.BD.combinetion_Of_Tours.ToList();
+            dataGridView2.DataSource = combinetion_Of_Tours;
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)

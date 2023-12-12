@@ -11,9 +11,7 @@ namespace PPPROGMA.Classes.Models
     {
         [Key]
         public int idfood_list {  get; set; }
-
-        public int idFood { get; set; }
-        public Food Food { get; set; }
+        public decimal Food_price { get; set; }
         public int idTour_days { get; set; }
         public Tour_days Tour_day { get; set; }
     }

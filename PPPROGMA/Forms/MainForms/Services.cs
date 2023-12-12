@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PPPROGMA.Classes.Models;
+using PPPROGMA;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -10,15 +12,15 @@ using System.Windows.Forms;
 
 namespace WindowsFormsApp1
 {
-    public partial class GeneralOptionsEditForm : Form
+    public partial class ServiceTable : Form
     {
-        bool Changing = false;
 
-        int id;
-
-        public GeneralOptionsEditForm()
+        List<Service> services;
+        public ServiceTable()
         {
             InitializeComponent();
+            services = Program.BD.services.ToList();
+            dataGridView2.DataSource = services;
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -43,10 +45,12 @@ namespace WindowsFormsApp1
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            var service = Program.BD.services.FirstOrDefault(x => x.idServices == int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
             string text = "Вы уверены что хотите удалить запись?";
             if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                //
+                service.delete();
+                services = Program.BD.services.ToList();
             }
 
 

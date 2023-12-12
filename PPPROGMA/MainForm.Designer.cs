@@ -32,6 +32,7 @@ namespace WindowsFormsApp1
             System.Windows.Forms.MenuStrip menuStrip1;
             this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.проживаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
@@ -42,7 +43,6 @@ namespace WindowsFormsApp1
             this.BtnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
-            this.проживаниеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             menuStrip1 = new System.Windows.Forms.MenuStrip();
             menuStrip1.SuspendLayout();
             this.pnlBorder.SuspendLayout();
@@ -64,7 +64,7 @@ namespace WindowsFormsApp1
             menuStrip1.Location = new System.Drawing.Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Padding = new System.Windows.Forms.Padding(6, 30, 0, 2);
-            menuStrip1.Size = new System.Drawing.Size(106, 531);
+            menuStrip1.Size = new System.Drawing.Size(126, 531);
             menuStrip1.TabIndex = 7;
             menuStrip1.Text = "Просмотр тура";
             // 
@@ -72,43 +72,55 @@ namespace WindowsFormsApp1
             // 
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.toolStripMenuItem1.Size = new System.Drawing.Size(93, 23);
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(113, 23);
             this.toolStripMenuItem1.Text = "Туры";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // toolStripMenuItem3
             // 
             this.toolStripMenuItem3.Name = "toolStripMenuItem3";
             this.toolStripMenuItem3.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.toolStripMenuItem3.Size = new System.Drawing.Size(93, 23);
+            this.toolStripMenuItem3.Size = new System.Drawing.Size(113, 23);
             this.toolStripMenuItem3.Text = "Питание";
+            // 
+            // проживаниеToolStripMenuItem
+            // 
+            this.проживаниеToolStripMenuItem.Name = "проживаниеToolStripMenuItem";
+            this.проживаниеToolStripMenuItem.Size = new System.Drawing.Size(113, 19);
+            this.проживаниеToolStripMenuItem.Text = "Проживание";
+            this.проживаниеToolStripMenuItem.Click += new System.EventHandler(this.проживаниеToolStripMenuItem_Click);
             // 
             // toolStripMenuItem4
             // 
             this.toolStripMenuItem4.Name = "toolStripMenuItem4";
             this.toolStripMenuItem4.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.toolStripMenuItem4.Size = new System.Drawing.Size(93, 23);
+            this.toolStripMenuItem4.Size = new System.Drawing.Size(113, 23);
             this.toolStripMenuItem4.Text = "Услуги";
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click);
             // 
             // toolStripMenuItem5
             // 
             this.toolStripMenuItem5.Name = "toolStripMenuItem5";
             this.toolStripMenuItem5.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.toolStripMenuItem5.Size = new System.Drawing.Size(93, 23);
+            this.toolStripMenuItem5.Size = new System.Drawing.Size(113, 23);
             this.toolStripMenuItem5.Text = "Общие услуги";
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // toolStripMenuItem6
             // 
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             this.toolStripMenuItem6.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.toolStripMenuItem6.Size = new System.Drawing.Size(93, 23);
+            this.toolStripMenuItem6.Size = new System.Drawing.Size(113, 23);
             this.toolStripMenuItem6.Text = "Сборные туры";
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
             // 
             // toolStripMenuItem7
             // 
             this.toolStripMenuItem7.Name = "toolStripMenuItem7";
             this.toolStripMenuItem7.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.toolStripMenuItem7.Size = new System.Drawing.Size(93, 23);
+            this.toolStripMenuItem7.Size = new System.Drawing.Size(113, 23);
             this.toolStripMenuItem7.Text = "Транспорт";
+            this.toolStripMenuItem7.Click += new System.EventHandler(this.toolStripMenuItem7_Click);
             // 
             // toolStripMenuItem8
             // 
@@ -116,8 +128,9 @@ namespace WindowsFormsApp1
             this.toolStripMenuItem9});
             this.toolStripMenuItem8.Name = "toolStripMenuItem8";
             this.toolStripMenuItem8.Padding = new System.Windows.Forms.Padding(4, 0, 4, 4);
-            this.toolStripMenuItem8.Size = new System.Drawing.Size(93, 23);
+            this.toolStripMenuItem8.Size = new System.Drawing.Size(113, 23);
             this.toolStripMenuItem8.Text = "Справочники";
+            this.toolStripMenuItem8.Click += new System.EventHandler(this.toolStripMenuItem8_Click);
             // 
             // toolStripMenuItem9
             // 
@@ -133,9 +146,9 @@ namespace WindowsFormsApp1
             this.pnlBorder.Controls.Add(this.btnMinimize);
             this.pnlBorder.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorder.ForeColor = System.Drawing.SystemColors.ActiveCaptionText;
-            this.pnlBorder.Location = new System.Drawing.Point(106, 0);
+            this.pnlBorder.Location = new System.Drawing.Point(126, 0);
             this.pnlBorder.Name = "pnlBorder";
-            this.pnlBorder.Size = new System.Drawing.Size(897, 30);
+            this.pnlBorder.Size = new System.Drawing.Size(877, 30);
             this.pnlBorder.TabIndex = 0;
             // 
             // BtnClose
@@ -143,7 +156,7 @@ namespace WindowsFormsApp1
             this.BtnClose.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnClose.Location = new System.Drawing.Point(837, 0);
+            this.BtnClose.Location = new System.Drawing.Point(817, 0);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(30, 30);
             this.BtnClose.TabIndex = 1;
@@ -156,7 +169,7 @@ namespace WindowsFormsApp1
             this.btnMinimize.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMinimize.Location = new System.Drawing.Point(867, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(847, 0);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(30, 30);
             this.btnMinimize.TabIndex = 0;
@@ -174,12 +187,6 @@ namespace WindowsFormsApp1
             this.ReturnButton.Text = "Назад";
             this.ReturnButton.UseVisualStyleBackColor = false;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
-            // 
-            // проживаниеToolStripMenuItem
-            // 
-            this.проживаниеToolStripMenuItem.Name = "проживаниеToolStripMenuItem";
-            this.проживаниеToolStripMenuItem.Size = new System.Drawing.Size(93, 19);
-            this.проживаниеToolStripMenuItem.Text = "Проживание";
             // 
             // MainForm
             // 

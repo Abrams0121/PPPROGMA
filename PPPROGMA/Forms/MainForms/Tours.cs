@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPPROGMA;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,13 @@ namespace WindowsFormsApp1
 {
     public partial class ToursTableForm : Form
     {
+        List<Tours> tourslist;
+        
         public ToursTableForm()
         {
             InitializeComponent();
+            tourslist = Program.BD.tours.ToList();
+            dataGridView2.DataSource = tourslist;
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)

@@ -12,7 +12,7 @@ namespace PPPROGMA.Classes.Models
         [Key]
         public int idServices_list {  get; set; }
         public int idServices { get; set; }
-        public Services Services { get; set; }
+        public Service Services { get; set; }
         public int idTour_days { get; set; }
         public Tour_days Tour_day { get; set; }
     }

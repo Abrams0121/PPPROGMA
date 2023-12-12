@@ -155,6 +155,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CRUD\Read.cs" />
+    <Compile Include="Classes\CRUD\Service\CrudService.cs" />
+    <Compile Include="Classes\CRUD\Service\ServiceAccomodation.cs" />
+    <Compile Include="Classes\CRUD\Service\ServiceGeneralServices.cs" />
+    <Compile Include="Classes\CRUD\Service\ServiceTransport.cs" />
+    <Compile Include="Classes\CRUD\Service\Service_Combination_Of_Tours.cs" />
+    <Compile Include="Classes\CRUD\Service\Service_sprav_transport_type.cs" />
     <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Classes\Models\Accommodation.cs" />
     <Compile Include="Classes\Models\Autorisation.cs" />
@@ -165,13 +171,14 @@
     <Compile Include="Classes\Models\Food_list.cs" />
     <Compile Include="Classes\Models\General_service.cs" />
     <Compile Include="Classes\Models\General_service_list.cs" />
-    <Compile Include="Classes\Models\Services.cs" />
+    <Compile Include="Classes\Models\Service.cs" />
     <Compile Include="Classes\Models\Services_list.cs" />
     <Compile Include="Classes\Models\Sprav_transport_type.cs" />
     <Compile Include="Classes\Models\Tours.cs" />
     <Compile Include="Classes\Models\Tour_days.cs" />
     <Compile Include="Classes\Models\Transport.cs" />
     <Compile Include="Classes\Models\Transport_list.cs" />
+    <Compile Include="Classes\Utils.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="AvtorisationForm.cs">
       <SubType>Form</SubType>
@@ -197,17 +204,17 @@
     <Compile Include="Forms\EditForms\FoodEdit.Designer.cs">
       <DependentUpon>FoodEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditForms\GeneralOptionsEdit.cs">
+    <Compile Include="Forms\EditForms\GeneralServiceEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditForms\GeneralOptionsEdit.Designer.cs">
-      <DependentUpon>GeneralOptionsEdit.cs</DependentUpon>
+    <Compile Include="Forms\EditForms\GeneralServiceEdit.Designer.cs">
+      <DependentUpon>GeneralServiceEdit.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\EditForms\OptionsEdit.cs">
+    <Compile Include="Forms\EditForms\ServiceEdit.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\EditForms\OptionsEdit.Designer.cs">
-      <DependentUpon>OptionsEdit.cs</DependentUpon>
+    <Compile Include="Forms\EditForms\ServiceEdit.Designer.cs">
+      <DependentUpon>ServiceEdit.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EditForms\TourConstructor.cs">
       <SubType>Form</SubType>
@@ -239,17 +246,17 @@
     <Compile Include="Forms\MainForms\Food.Designer.cs">
       <DependentUpon>Food.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForms\Options.cs">
+    <Compile Include="Forms\MainForms\Services.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForms\Options.Designer.cs">
-      <DependentUpon>Options.cs</DependentUpon>
+    <Compile Include="Forms\MainForms\Services.Designer.cs">
+      <DependentUpon>Services.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForms\GeneralOptions.cs">
+    <Compile Include="Forms\MainForms\GeneralServices.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForms\GeneralOptions.Designer.cs">
-      <DependentUpon>GeneralOptions.cs</DependentUpon>
+    <Compile Include="Forms\MainForms\GeneralServices.Designer.cs">
+      <DependentUpon>GeneralServices.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\MainForms\Tours.cs">
       <SubType>Form</SubType>
@@ -295,11 +302,11 @@
     <EmbeddedResource Include="Forms\EditForms\FoodEdit.resx">
       <DependentUpon>FoodEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditForms\GeneralOptionsEdit.resx">
-      <DependentUpon>GeneralOptionsEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditForms\GeneralServiceEdit.resx">
+      <DependentUpon>GeneralServiceEdit.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\EditForms\OptionsEdit.resx">
-      <DependentUpon>OptionsEdit.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\EditForms\ServiceEdit.resx">
+      <DependentUpon>ServiceEdit.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditForms\TourConstructor.resx">
       <DependentUpon>TourConstructor.cs</DependentUpon>
@@ -316,11 +323,11 @@
     <EmbeddedResource Include="Forms\MainForms\Food.resx">
       <DependentUpon>Food.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForms\Options.resx">
-      <DependentUpon>Options.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainForms\Services.resx">
+      <DependentUpon>Services.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForms\GeneralOptions.resx">
-      <DependentUpon>GeneralOptions.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainForms\GeneralServices.resx">
+      <DependentUpon>GeneralServices.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\MainForms\Tours.resx">
       <DependentUpon>Tours.cs</DependentUpon>

@@ -1,5 +1,4 @@
 ﻿using Microsoft.EntityFrameworkCore;
-using PPPROGMA.Classes.Models;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
@@ -8,22 +7,20 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PPPROGMA
+namespace PPPROGMA.Classes.Models
 {
-    [Table("accommodation")]
-    internal class Accommodation
+    [Table("services")]
+    internal class Service
     {
         [Key]
-        public int idAccommodation { get; set; }
-        public string Accommodation_name { get; set; }
-        public decimal Price_for_one_person { get; set; }
-
-        public ICollection<Tour_days> tour_Days { get; set; }
-
+        public int idServices { get; set; }
+        public string Service_name { get; set; }
+        public decimal Service_cost { get; set; }
+        public ICollection<Services_list> Services_list { get; set; }
 
         public void Insert()
         {
-            Program.BD.accommodations.Add(this);
+            Program.BD.services.Add(this);
             Program.BD.SaveChanges();
         }
 
@@ -31,7 +28,7 @@ namespace PPPROGMA
         {
             if (allowDel())
             {
-                Program.BD.accommodations.Remove(this);
+                Program.BD.services.Remove(this);
                 return true;
             }
             return false;
@@ -44,26 +41,26 @@ namespace PPPROGMA
 
         public bool setName(string name)
         {
-            if (name == Accommodation_name)
+            if (name == Service_name)
             {
                 return true;
             }
 
 
-            int count = Program.BD.accommodations.Where(tv => tv.Accommodation_name == name).Count();
+            int count = Program.BD.services.Where(tv => tv.Service_name == name).Count();
             if (count > 0)
             {
                 Utils.Warning("Дублирование значения");
                 return false;
             }
 
-            Accommodation_name = name;
+            Service_name = name;
             return true;
         }
 
         public bool allowDel()
         {
-            int countInRefTable = Program.BD.tour_Days.Include(v => v.idAccommodation).Where(v => v.Accommodation == this).Count();
+            int countInRefTable = Program.BD.services_list.Include(v => v.idServices).Where(v => v.Services == this).Count();
 
             if (countInRefTable > 0)
             {

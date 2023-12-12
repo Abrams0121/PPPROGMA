@@ -11,7 +11,7 @@ namespace PPPROGMA.Classes.CRUD
     {
         public static List<Sprav_transport_type> TransportTypeUpdate()
         {
-            return Program.BD.sprav_Transport_Types.ToList();
+            return Program.BD.sprav_transport_type.ToList();
         }
     }
 }

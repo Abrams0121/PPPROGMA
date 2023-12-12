@@ -61,7 +61,49 @@ namespace WindowsFormsApp1
 
         private void toolStripMenuItem9_Click(object sender, EventArgs e)
         {
+            SpravTransportTypeForm spravTransportTypeForm = new SpravTransportTypeForm();
+            spravTransportTypeForm.ShowDialog();
+        }
 
+        private void toolStripMenuItem8_Click(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void toolStripMenuItem7_Click(object sender, EventArgs e)
+        {
+            TransportTable transportTable = new TransportTable();
+            transportTable.ShowDialog();
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            CombinedToursTable combinedToursTable = new CombinedToursTable();
+            combinedToursTable.ShowDialog();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
+        {
+            GeneralServicesTable generalServicesTable = new GeneralServicesTable();
+            generalServicesTable.ShowDialog();
+        }
+
+        private void toolStripMenuItem4_Click(object sender, EventArgs e)
+        {
+            ServiceTable serviceTable = new ServiceTable();
+            serviceTable.ShowDialog();
+        }
+
+        private void проживаниеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            AccomodationForm accomodationForm = new AccomodationForm();
+            accomodationForm.ShowDialog();
+        }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ToursTableForm toursTable = new ToursTableForm();
+            toursTable.ShowDialog();
         }
     }
 }

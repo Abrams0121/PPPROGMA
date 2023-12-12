@@ -34,12 +34,12 @@ namespace WindowsFormsApp1
             this.BtnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddButton = new System.Windows.Forms.Button();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpravName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -66,9 +66,9 @@ namespace WindowsFormsApp1
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 18);
+            this.label1.Size = new System.Drawing.Size(138, 18);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Название таблицы";
+            this.label1.Text = "Типы транспорта";
             // 
             // BtnClose
             // 
@@ -106,26 +106,14 @@ namespace WindowsFormsApp1
             this.dataGridView2.AllowUserToResizeRows = false;
             this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.Column1,
-            this.Column2});
+            this.id,
+            this.SpravName});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView2.Location = new System.Drawing.Point(0, 23);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.Size = new System.Drawing.Size(205, 368);
             this.dataGridView2.TabIndex = 2;
-            // 
-            // Column1
-            // 
-            this.Column1.HeaderText = "Column1";
-            this.Column1.Name = "Column1";
-            this.Column1.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.HeaderText = "Заголовок";
-            this.Column2.Name = "Column2";
-            this.Column2.Width = 300;
             // 
             // AddButton
             // 
@@ -175,6 +163,20 @@ namespace WindowsFormsApp1
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
+            // id
+            // 
+            this.id.DataPropertyName = "idSprav_Transport_type";
+            this.id.HeaderText = "Column1";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // SpravName
+            // 
+            this.SpravName.DataPropertyName = "Sprav_Transport_typecol";
+            this.SpravName.HeaderText = "Название типа";
+            this.SpravName.Name = "SpravName";
+            this.SpravName.Width = 300;
+            // 
             // SpravTransportTypeForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
@@ -193,6 +195,7 @@ namespace WindowsFormsApp1
             this.Name = "SpravTransportTypeForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sprav_table_form";
+            this.Load += new System.EventHandler(this.SpravTransportTypeForm_Load);
             this.pnlBorder.ResumeLayout(false);
             this.pnlBorder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -212,8 +215,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button ReturnButton;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn SpravName;
     }
 }
 

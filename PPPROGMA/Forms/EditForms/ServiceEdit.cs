@@ -9,28 +9,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using PPPROGMA.Classes.CRUD.Service;
 
 namespace WindowsFormsApp1
 {
-    public partial class CombinedToursEditForm : Form
+    public partial class ServiceEditForm : Form
     {
         bool changing = false;
 
         int id;
 
-        Combinetion_of_tours combinetion_Of_Tours;
+        Service service;
 
-        public CombinedToursEditForm()
+        public ServiceEditForm()
         {
             InitializeComponent();
-            combinetion_Of_Tours = Program.BD.combinetion_Of_Tours.SingleOrDefault(x => x.idcombinetion_of_tours == id);
+            service = Program.BD.services.SingleOrDefault(x => x.idServices == id);
 
             if (changing)
             {
                 mainLabel.Text = "Редактирование";
-                textBox1.Text = combinetion_Of_Tours.combinetion_of_tours_name;
-                maskedTextBox1.Text = Utils.DecimalToString(combinetion_Of_Tours.combinetion_of_tours_price);
+                textBox1.Text = service.Service_name;
+                maskedTextBox1.Text = Utils.DecimalToString(service.Service_cost);
             }
             else
             {
@@ -60,6 +59,12 @@ namespace WindowsFormsApp1
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            string text = "Вы уверены что хотите удалить запись?";
+            if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
+            {
+                //
+            }
+
 
         }
 
@@ -76,30 +81,30 @@ namespace WindowsFormsApp1
                 return;
             }
 
-            Service_Combination_Of_Tours DBWORK = new Service_Combination_Of_Tours();
+            CrudService DBWORK = new CrudService();
 
             if (!changing)
             {
-                combinetion_Of_Tours = new Combinetion_of_tours()
+                service = new Service()
                 {
-                    combinetion_of_tours_name = textBox1.Text,
-                    combinetion_of_tours_price = Utils.StringToDecimal(maskedTextBox1.Text),
+                    Service_name = textBox1.Text,
+                    Service_cost = Utils.StringToDecimal(maskedTextBox1.Text),
 
                 };
 
-                if (DBWORK.setName(textBox1.Text, combinetion_Of_Tours))
+                if (DBWORK.setName(textBox1.Text, service))
                 {
-                    DBWORK.Insert(combinetion_Of_Tours);
+                    DBWORK.Insert(service);
                     Close();
                     return;
                 }
             }
             else
             {
-                if (DBWORK.setName(textBox1.Text, combinetion_Of_Tours))
+                if (DBWORK.setName(textBox1.Text, service))
                 {
-                    combinetion_Of_Tours.combinetion_of_tours_name = textBox1.Text;
-                    combinetion_Of_Tours.combinetion_of_tours_price = Utils.StringToDecimal(maskedTextBox1.Text);
+                    service.Service_name = textBox1.Text;
+                    service.Service_cost = Utils.StringToDecimal(maskedTextBox1.Text);
                     DBWORK.Update();
                     Close();
                     return;
