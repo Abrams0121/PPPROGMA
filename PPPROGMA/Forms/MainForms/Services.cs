@@ -9,6 +9,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement;
+using Microsoft.EntityFrameworkCore;
 
 namespace WindowsFormsApp1
 {
@@ -59,6 +61,26 @@ namespace WindowsFormsApp1
         private void ChangeButton_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            if (!String.IsNullOrEmpty(textBox1.Text))
+            {
+                services.Clear();
+                services = Program.BD.services.Where(x => EF.Functions.Like(x.Service_name,textBox1.Text)).ToList();
+            }else
+            {
+                services.Clear();
+                services = Program.BD.services.ToList();
+            }
+            
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            services.Clear();
+            services = Program.BD.services.ToList();
         }
     }
 }

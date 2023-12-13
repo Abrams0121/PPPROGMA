@@ -23,18 +23,7 @@ namespace WindowsFormsApp1
         public ServiceEditForm()
         {
             InitializeComponent();
-            service = Program.BD.services.SingleOrDefault(x => x.idServices == id);
-
-            if (changing)
-            {
-                mainLabel.Text = "Редактирование";
-                textBox1.Text = service.Service_name;
-                maskedTextBox1.Text = Utils.DecimalToString(service.Service_cost);
-            }
-            else
-            {
-                mainLabel.Text = "Добавление";
-            }
+           
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -109,6 +98,22 @@ namespace WindowsFormsApp1
                     Close();
                     return;
                 }
+            }
+        }
+
+        private void ServiceEditForm_Load(object sender, EventArgs e)
+        {
+            service = Program.BD.services.SingleOrDefault(x => x.idServices == id);
+
+            if (changing)
+            {
+                mainLabel.Text = "Редактирование";
+                textBox1.Text = service.Service_name;
+                maskedTextBox1.Text = Utils.DecimalToString(service.Service_cost);
+            }
+            else
+            {
+                mainLabel.Text = "Добавление";
             }
         }
     }

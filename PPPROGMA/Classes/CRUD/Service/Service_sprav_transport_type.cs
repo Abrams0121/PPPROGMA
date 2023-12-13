@@ -27,6 +27,7 @@ namespace PPPROGMA.Classes.CRUD.Service
             if (allowDel(type))
             {
                 DB.sprav_transport_type.Remove(type);
+                DB.SaveChanges();
                 return true;
             }
             return false;

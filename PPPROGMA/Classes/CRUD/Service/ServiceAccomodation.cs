@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace PPPROGMA.Classes.CRUD.Service
 {
-    internal class ServiceAccomodation
+    internal class ServiceAccomodation : IDisposable
     {
         DbConnection DB;
         public ServiceAccomodation()
@@ -26,6 +26,7 @@ namespace PPPROGMA.Classes.CRUD.Service
             if (allowDel(accommodation))
             {
                 DB.accommodations.Remove(accommodation);
+                DB.SaveChanges();
                 return true;
             }
             return false;
@@ -65,6 +66,11 @@ namespace PPPROGMA.Classes.CRUD.Service
             }
 
             return countInRefTable == 0;
+        }
+
+        public void Dispose()
+        {
+            DB.Dispose();
         }
     }
 }

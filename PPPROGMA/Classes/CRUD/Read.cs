@@ -7,11 +7,32 @@ using System.Threading.Tasks;
 
 namespace PPPROGMA.Classes.CRUD
 {
-    internal static class Read
+    internal class Read : IDisposable
     {
-        public static List<Sprav_transport_type> TransportTypeUpdate()
+        
+
+        DbConnection DB;
+        public Read()
         {
-            return Program.BD.sprav_transport_type.ToList();
+            DB = new DbConnection();
+        }
+
+        public static List<Sprav_transport_type> UpdateTranportType()
+        {
+            using (Read read = new Read())
+            {
+                return read.DB.sprav_transport_type.ToList();
+            }
+        }
+
+        public List<T> UpdateList<T>() where T : class
+        {
+            return DB.Set<T>().ToList();
+        }
+
+        public void Dispose()
+        {
+            DB.Dispose();
         }
     }
 }

@@ -157,7 +157,10 @@
     <Compile Include="Classes\CRUD\Read.cs" />
     <Compile Include="Classes\CRUD\Service\CrudService.cs" />
     <Compile Include="Classes\CRUD\Service\ServiceAccomodation.cs" />
+    <Compile Include="Classes\CRUD\Service\ServiceDayTour.cs" />
     <Compile Include="Classes\CRUD\Service\ServiceGeneralServices.cs" />
+    <Compile Include="Classes\CRUD\Service\ServiceList.cs" />
+    <Compile Include="Classes\CRUD\Service\ServiceTour.cs" />
     <Compile Include="Classes\CRUD\Service\ServiceTransport.cs" />
     <Compile Include="Classes\CRUD\Service\Service_Combination_Of_Tours.cs" />
     <Compile Include="Classes\CRUD\Service\Service_sprav_transport_type.cs" />
@@ -174,7 +177,7 @@
     <Compile Include="Classes\Models\Service.cs" />
     <Compile Include="Classes\Models\Services_list.cs" />
     <Compile Include="Classes\Models\Sprav_transport_type.cs" />
-    <Compile Include="Classes\Models\Tours.cs" />
+    <Compile Include="Classes\Models\Tour.cs" />
     <Compile Include="Classes\Models\Tour_days.cs" />
     <Compile Include="Classes\Models\Transport.cs" />
     <Compile Include="Classes\Models\Transport_list.cs" />
@@ -185,6 +188,12 @@
     </Compile>
     <Compile Include="AvtorisationForm.Designer.cs">
       <DependentUpon>AvtorisationForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdditionalForms\SelectList.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdditionalForms\SelectList.Designer.cs">
+      <DependentUpon>SelectList.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EditForms\AccomodationEdit.cs">
       <SubType>Form</SubType>
@@ -292,6 +301,9 @@
     </Compile>
     <EmbeddedResource Include="AvtorisationForm.resx">
       <DependentUpon>AvtorisationForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdditionalForms\SelectList.resx">
+      <DependentUpon>SelectList.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditForms\AccomodationEdit.resx">
       <DependentUpon>AccomodationEdit.cs</DependentUpon>

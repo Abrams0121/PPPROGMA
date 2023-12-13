@@ -41,6 +41,13 @@ namespace WindowsFormsApp1
             this.ChangeButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
+            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -125,12 +132,14 @@ namespace WindowsFormsApp1
             // 
             this.Column1.HeaderText = "Column1";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Visible = false;
             // 
             // Column2
             // 
             this.Column2.HeaderText = "Заголовок";
             this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
             this.Column2.Width = 300;
             // 
             // AddButton
@@ -181,12 +190,78 @@ namespace WindowsFormsApp1
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
+            // dateTimePicker1
+            // 
+            this.dateTimePicker1.Location = new System.Drawing.Point(1128, 88);
+            this.dateTimePicker1.Name = "dateTimePicker1";
+            this.dateTimePicker1.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker1.TabIndex = 7;
+            // 
+            // dateTimePicker2
+            // 
+            this.dateTimePicker2.Location = new System.Drawing.Point(1128, 135);
+            this.dateTimePicker2.Name = "dateTimePicker2";
+            this.dateTimePicker2.Size = new System.Drawing.Size(200, 26);
+            this.dateTimePicker2.TabIndex = 8;
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1240, 178);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(88, 29);
+            this.button1.TabIndex = 9;
+            this.button1.Text = "Отобрать";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1128, 178);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(75, 29);
+            this.button2.TabIndex = 10;
+            this.button2.Text = "Отмена";
+            this.button2.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(1045, 94);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(31, 18);
+            this.label2.TabIndex = 11;
+            this.label2.Text = "C :";
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(1045, 143);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(41, 18);
+            this.label3.TabIndex = 12;
+            this.label3.Text = "По :";
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(1125, 56);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(118, 18);
+            this.label4.TabIndex = 13;
+            this.label4.Text = "Отбор по дате";
+            // 
             // ToursTableForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.ClientSize = new System.Drawing.Size(1417, 584);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.dateTimePicker2);
+            this.Controls.Add(this.dateTimePicker1);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.ChangeButton);
@@ -203,6 +278,7 @@ namespace WindowsFormsApp1
             this.pnlBorder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -213,13 +289,20 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnMinimize;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        public System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Button DeleteButton;
         private System.Windows.Forms.Button ReturnButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.DateTimePicker dateTimePicker1;
+        private System.Windows.Forms.DateTimePicker dateTimePicker2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Label label4;
     }
 }
 

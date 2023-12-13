@@ -210,7 +210,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnMinimize;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        public System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Button DeleteButton;

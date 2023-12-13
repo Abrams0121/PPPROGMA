@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PPPROGMA
 {
-    internal class ServiceGeneralServices
+    internal class ServiceGeneralServices : IDisposable
     {
         DbConnection DB;
         public ServiceGeneralServices()
@@ -27,6 +27,7 @@ namespace PPPROGMA
             if (allowDel(general_Service))
             {
                 DB.general_services.Remove(general_Service);
+                DB.SaveChanges();
                 return true;
             }
             return false;
@@ -66,6 +67,11 @@ namespace PPPROGMA
             }
 
             return countInRefTable == 0;
+        }
+
+        public void Dispose()
+        {
+            DB.Dispose();
         }
     }
 }

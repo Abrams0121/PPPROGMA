@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PPPROGMA
 {
-    internal class CrudService
+    internal class CrudService : IDisposable
     {
         DbConnection DB;
         public CrudService()
@@ -27,6 +27,7 @@ namespace PPPROGMA
             if (allowDel(service))
             {
                 DB.services.Remove(service);
+                DB.SaveChanges();
                 return true;
             }
             return false;
@@ -58,7 +59,7 @@ namespace PPPROGMA
 
         public bool allowDel(Service service)
         {
-            int countInRefTable = DB.services_list.Include(v => v.idServices).Where(v => v.Services == service).Count();
+            int countInRefTable = DB.services_list.Include(v => v.idServices).Where(v => v.Service == service).Count();
 
             if (countInRefTable > 0)
             {
@@ -66,6 +67,11 @@ namespace PPPROGMA
             }
 
             return countInRefTable == 0;
+        }
+
+        public void Dispose()
+        {
+            DB.Dispose();
         }
     }
 }

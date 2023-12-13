@@ -177,6 +177,7 @@ namespace WindowsFormsApp1
             this.Name = "CombinedToursEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sprav_table_form";
+            this.Load += new System.EventHandler(this.CombinedToursEditForm_Load);
             this.pnlBorder.ResumeLayout(false);
             this.pnlBorder.PerformLayout();
             this.ResumeLayout(false);

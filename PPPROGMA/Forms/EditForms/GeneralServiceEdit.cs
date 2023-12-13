@@ -23,18 +23,7 @@ namespace WindowsFormsApp1
         public GeneralServiceEditForm()
         {
             InitializeComponent();
-            general_Service = Program.BD.general_services.SingleOrDefault(x => x.idgeneral_Service == id);
-
-            if (changing)
-            {
-                mainLabel.Text = "Редактирование";
-                textBox1.Text = general_Service.general_Service_name;
-                maskedTextBox1.Text = Utils.DecimalToString(general_Service.general_Service_price);
-            }
-            else
-            {
-                mainLabel.Text = "Добавление";
-            }
+           
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -102,6 +91,22 @@ namespace WindowsFormsApp1
                     Close();
                     return;
                 }
+            }
+        }
+
+        private void GeneralServiceEditForm_Load(object sender, EventArgs e)
+        {
+            general_Service = Program.BD.general_services.SingleOrDefault(x => x.idgeneral_Service == id);
+
+            if (changing)
+            {
+                mainLabel.Text = "Редактирование";
+                textBox1.Text = general_Service.general_Service_name;
+                maskedTextBox1.Text = Utils.DecimalToString(general_Service.general_Service_price);
+            }
+            else
+            {
+                mainLabel.Text = "Добавление";
             }
         }
     }

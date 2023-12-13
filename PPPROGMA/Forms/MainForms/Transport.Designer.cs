@@ -38,10 +38,14 @@ namespace WindowsFormsApp1
             this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.TransportName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddButton = new System.Windows.Forms.Button();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
+            this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +60,7 @@ namespace WindowsFormsApp1
             this.pnlBorder.Location = new System.Drawing.Point(0, 0);
             this.pnlBorder.Margin = new System.Windows.Forms.Padding(2);
             this.pnlBorder.Name = "pnlBorder";
-            this.pnlBorder.Size = new System.Drawing.Size(1042, 23);
+            this.pnlBorder.Size = new System.Drawing.Size(1216, 23);
             this.pnlBorder.TabIndex = 0;
             // 
             // label1
@@ -76,7 +80,7 @@ namespace WindowsFormsApp1
             this.BtnClose.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnClose.Location = new System.Drawing.Point(998, 0);
+            this.BtnClose.Location = new System.Drawing.Point(1172, 0);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(2);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(22, 23);
@@ -90,7 +94,7 @@ namespace WindowsFormsApp1
             this.btnMinimize.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMinimize.Location = new System.Drawing.Point(1020, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(1194, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(22, 23);
@@ -114,13 +118,14 @@ namespace WindowsFormsApp1
             this.dataGridView2.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.id,
             this.TransportName,
-            this.Column1});
+            this.Column1,
+            this.Column2});
             this.dataGridView2.Dock = System.Windows.Forms.DockStyle.Left;
             this.dataGridView2.Location = new System.Drawing.Point(0, 23);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
             this.dataGridView2.ReadOnly = true;
-            this.dataGridView2.Size = new System.Drawing.Size(735, 508);
+            this.dataGridView2.Size = new System.Drawing.Size(851, 508);
             this.dataGridView2.TabIndex = 2;
             // 
             // id
@@ -128,6 +133,7 @@ namespace WindowsFormsApp1
             this.id.DataPropertyName = "idTransport";
             this.id.HeaderText = "Column1";
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
             // TransportName
@@ -135,6 +141,7 @@ namespace WindowsFormsApp1
             this.TransportName.DataPropertyName = "Transport_name";
             this.TransportName.HeaderText = "Название транспорта";
             this.TransportName.Name = "TransportName";
+            this.TransportName.ReadOnly = true;
             this.TransportName.Width = 300;
             // 
             // Column1
@@ -142,12 +149,21 @@ namespace WindowsFormsApp1
             this.Column1.DataPropertyName = "Transport_price";
             this.Column1.HeaderText = "Цена транспорта";
             this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             this.Column1.Width = 300;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Sprav_Transport_type_name";
+            this.Column2.HeaderText = "Тип транспорта";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Width = 200;
             // 
             // AddButton
             // 
             this.AddButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddButton.Location = new System.Drawing.Point(855, 64);
+            this.AddButton.Location = new System.Drawing.Point(855, 202);
             this.AddButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(98, 29);
@@ -159,7 +175,7 @@ namespace WindowsFormsApp1
             // ChangeButton
             // 
             this.ChangeButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ChangeButton.Location = new System.Drawing.Point(855, 106);
+            this.ChangeButton.Location = new System.Drawing.Point(855, 244);
             this.ChangeButton.Margin = new System.Windows.Forms.Padding(2);
             this.ChangeButton.Name = "ChangeButton";
             this.ChangeButton.Size = new System.Drawing.Size(98, 29);
@@ -171,7 +187,7 @@ namespace WindowsFormsApp1
             // DeleteButton
             // 
             this.DeleteButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteButton.Location = new System.Drawing.Point(855, 147);
+            this.DeleteButton.Location = new System.Drawing.Point(855, 285);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(98, 29);
@@ -192,12 +208,43 @@ namespace WindowsFormsApp1
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(908, 93);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(121, 29);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Отмена";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(1035, 93);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(121, 29);
+            this.button2.TabIndex = 8;
+            this.button2.Text = "Отбор";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
+            // comboBox1
+            // 
+            this.comboBox1.FormattingEnabled = true;
+            this.comboBox1.Location = new System.Drawing.Point(908, 51);
+            this.comboBox1.Name = "comboBox1";
+            this.comboBox1.Size = new System.Drawing.Size(191, 26);
+            this.comboBox1.TabIndex = 9;
+            // 
             // TransportTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1042, 531);
+            this.ClientSize = new System.Drawing.Size(1216, 531);
+            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.ChangeButton);
@@ -210,6 +257,7 @@ namespace WindowsFormsApp1
             this.Name = "TransportTable";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sprav_table_form";
+            this.Load += new System.EventHandler(this.TransportTable_Load);
             this.pnlBorder.ResumeLayout(false);
             this.pnlBorder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
@@ -224,7 +272,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnMinimize;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        public System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Button DeleteButton;
@@ -232,6 +280,10 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn TransportName;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.ComboBox comboBox1;
     }
 }
 

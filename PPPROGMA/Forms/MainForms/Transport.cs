@@ -21,10 +21,13 @@ namespace WindowsFormsApp1
     {
         List<Transport> transports;
 
+        List<Sprav_transport_type> sprav_Transport_Types => Read.UpdateTranportType();
+
         public TransportTable()
         {
             InitializeComponent();
             transports = Program.BD.transports.Include(x => x.Sprav_Transport_type).ToList();
+            dataGridView2.DataSource = transports;
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -85,6 +88,32 @@ namespace WindowsFormsApp1
                 id = id
             };
             frm.ShowDialog();
+            transports = Program.BD.transports.ToList();
+        }
+
+        private void TransportTable_Load(object sender, EventArgs e)
+        {
+            comboBox1.DataSource = sprav_Transport_Types;
+            comboBox1.DisplayMember = "Sprav_Transport_typecol";
+            comboBox1.ValueMember = "idSprav_Transport_type";
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            
+            int id;
+            if (!int.TryParse(comboBox1.SelectedValue.ToString(), out id))
+            {
+                Utils.Error("Ошибка отбора");
+                return;
+            }
+            transports.Clear();
+            transports = Program.BD.transports.Where(x => x.idSprav_Transport_type == id).ToList();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            transports.Clear();
             transports = Program.BD.transports.ToList();
         }
     }

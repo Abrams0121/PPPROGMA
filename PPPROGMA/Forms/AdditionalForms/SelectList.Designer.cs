@@ -1,7 +1,7 @@
 ﻿
 namespace WindowsFormsApp1
 {
-    partial class TransportEditForm
+    partial class SelectListForm<T>
     {
         /// <summary>
         /// Обязательная переменная конструктора.
@@ -30,52 +30,51 @@ namespace WindowsFormsApp1
         private void InitializeComponent()
         {
             this.pnlBorder = new System.Windows.Forms.Panel();
-            this.mainLabel = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.BtnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.mySqlCommand1 = new MySql.Data.MySqlClient.MySqlCommand();
+            this.AddButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.label2 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBorder.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBorder
             // 
             this.pnlBorder.BackColor = System.Drawing.SystemColors.ControlDark;
-            this.pnlBorder.Controls.Add(this.mainLabel);
+            this.pnlBorder.Controls.Add(this.label1);
             this.pnlBorder.Controls.Add(this.BtnClose);
             this.pnlBorder.Controls.Add(this.btnMinimize);
             this.pnlBorder.Dock = System.Windows.Forms.DockStyle.Top;
             this.pnlBorder.Location = new System.Drawing.Point(0, 0);
             this.pnlBorder.Margin = new System.Windows.Forms.Padding(2);
             this.pnlBorder.Name = "pnlBorder";
-            this.pnlBorder.Size = new System.Drawing.Size(790, 23);
+            this.pnlBorder.Size = new System.Drawing.Size(597, 23);
             this.pnlBorder.TabIndex = 0;
             // 
-            // mainLabel
+            // label1
             // 
-            this.mainLabel.AutoSize = true;
-            this.mainLabel.BackColor = System.Drawing.Color.Transparent;
-            this.mainLabel.Dock = System.Windows.Forms.DockStyle.Left;
-            this.mainLabel.Location = new System.Drawing.Point(0, 0);
-            this.mainLabel.Margin = new System.Windows.Forms.Padding(0);
-            this.mainLabel.Name = "mainLabel";
-            this.mainLabel.Size = new System.Drawing.Size(151, 18);
-            this.mainLabel.TabIndex = 2;
-            this.mainLabel.Text = "Название таблицы";
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Dock = System.Windows.Forms.DockStyle.Left;
+            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Margin = new System.Windows.Forms.Padding(0);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(151, 18);
+            this.label1.TabIndex = 2;
+            this.label1.Text = "Название таблицы";
             // 
             // BtnClose
             // 
             this.BtnClose.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnClose.Location = new System.Drawing.Point(746, 0);
+            this.BtnClose.Location = new System.Drawing.Point(553, 0);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(2);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(22, 23);
@@ -89,7 +88,7 @@ namespace WindowsFormsApp1
             this.btnMinimize.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMinimize.Location = new System.Drawing.Point(768, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(575, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(22, 23);
@@ -105,10 +104,22 @@ namespace WindowsFormsApp1
             this.mySqlCommand1.EnableCaching = false;
             this.mySqlCommand1.Transaction = null;
             // 
+            // AddButton
+            // 
+            this.AddButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.AddButton.Location = new System.Drawing.Point(268, 490);
+            this.AddButton.Margin = new System.Windows.Forms.Padding(2);
+            this.AddButton.Name = "AddButton";
+            this.AddButton.Size = new System.Drawing.Size(98, 29);
+            this.AddButton.TabIndex = 3;
+            this.AddButton.Text = "Добавить";
+            this.AddButton.UseVisualStyleBackColor = true;
+            this.AddButton.Click += new System.EventHandler(this.AddButton_Click);
+            // 
             // ReturnButton
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReturnButton.Location = new System.Drawing.Point(701, 439);
+            this.ReturnButton.Location = new System.Drawing.Point(508, 490);
             this.ReturnButton.Margin = new System.Windows.Forms.Padding(2);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(78, 29);
@@ -117,92 +128,61 @@ namespace WindowsFormsApp1
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
-            // button1
+            // dataGridView1
             // 
-            this.button1.Location = new System.Drawing.Point(211, 437);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(110, 32);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Сохранить";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.dataGridView1.AllowUserToAddRows = false;
+            this.dataGridView1.AllowUserToDeleteRows = false;
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.ID,
+            this.ColName,
+            this.Price});
+            this.dataGridView1.Location = new System.Drawing.Point(3, 28);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.Size = new System.Drawing.Size(249, 491);
+            this.dataGridView1.TabIndex = 7;
             // 
-            // textBox1
+            // ID
             // 
-            this.textBox1.Location = new System.Drawing.Point(95, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(352, 26);
-            this.textBox1.TabIndex = 8;
+            this.ID.HeaderText = "Column1";
+            this.ID.Name = "ID";
+            this.ID.ReadOnly = true;
+            this.ID.Visible = false;
             // 
-            // comboBox1
+            // ColName
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(95, 249);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(352, 26);
-            this.comboBox1.TabIndex = 10;
+            this.ColName.HeaderText = "Название";
+            this.ColName.Name = "ColName";
+            this.ColName.ReadOnly = true;
             // 
-            // label2
+            // Price
             // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(92, 83);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(172, 18);
-            this.label2.TabIndex = 11;
-            this.label2.Text = "Название транспорта";
+            this.Price.HeaderText = "Цена";
+            this.Price.Name = "Price";
+            this.Price.ReadOnly = true;
             // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(92, 158);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(46, 18);
-            this.label3.TabIndex = 12;
-            this.label3.Text = "Цена";
-            // 
-            // label4
-            // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(92, 228);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(35, 18);
-            this.label4.TabIndex = 13;
-            this.label4.Text = "Тип";
-            // 
-            // maskedTextBox1
-            // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(95, 190);
-            this.maskedTextBox1.Mask = "$999,000.00";
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(352, 26);
-            this.maskedTextBox1.TabIndex = 15;
-            // 
-            // TransportEditForm
+            // SelectListForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(790, 531);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.button1);
+            this.ClientSize = new System.Drawing.Size(597, 531);
+            this.Controls.Add(this.dataGridView1);
             this.Controls.Add(this.ReturnButton);
+            this.Controls.Add(this.AddButton);
             this.Controls.Add(this.pnlBorder);
             this.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4);
-            this.Name = "TransportEditForm";
+            this.Name = "SelectListForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sprav_table_form";
-            this.Load += new System.EventHandler(this.TransportEditForm_Load);
+            this.Load += new System.EventHandler(this.SelectListForm_Load);
             this.pnlBorder.ResumeLayout(false);
             this.pnlBorder.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -212,15 +192,13 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button BtnClose;
         private System.Windows.Forms.Button btnMinimize;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
-        private System.Windows.Forms.Label mainLabel;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button ReturnButton;
-        private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ID;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ColName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Price;
     }
 }
 

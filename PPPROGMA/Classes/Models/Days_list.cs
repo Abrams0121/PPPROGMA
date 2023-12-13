@@ -12,7 +12,7 @@ namespace PPPROGMA.Classes.Models
         [Key]
         public int idDays_list { get; set; }
         public int idTour { get; set; }
-        public Tours tour { get; set; }
+        public Tour tour { get; set; }
         public ICollection<Tour_days> tour_Days {  get; set; }  
     }
 }

@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PPPROGMA.Classes.CRUD.Service
 {
-    internal class ServiceTransport
+    internal class ServiceTransport : IDisposable
     {
 
         DbConnection DB;
@@ -28,6 +28,7 @@ namespace PPPROGMA.Classes.CRUD.Service
             if (allowDel(transport))
             {
                 DB.transports.Remove(transport);
+                DB.SaveChanges();
                 return true;
             }
             return false;
@@ -67,6 +68,11 @@ namespace PPPROGMA.Classes.CRUD.Service
             }
 
             return countInRefTable == 0;
+        }
+
+        public void Dispose()
+        {
+            DB.Dispose();
         }
     }
 }

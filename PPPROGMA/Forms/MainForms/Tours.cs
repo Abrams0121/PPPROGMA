@@ -13,7 +13,7 @@ namespace WindowsFormsApp1
 {
     public partial class ToursTableForm : Form
     {
-        List<Tours> tourslist;
+        List<Tour> tourslist;
         
         public ToursTableForm()
         {

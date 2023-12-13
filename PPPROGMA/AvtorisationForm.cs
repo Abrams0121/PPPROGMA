@@ -44,6 +44,13 @@ namespace PPPROGMA
                     mainForm.Show();
                     this.Hide();
                 }
+                else
+                {
+                    Utils.Warning("Неправильный логин или пароль");
+                }
+            } else
+            {
+                Utils.Warning("Введите логин и пароль");
             }
         }
 

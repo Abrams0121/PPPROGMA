@@ -24,18 +24,7 @@ namespace WindowsFormsApp1
         public CombinedToursEditForm()
         {
             InitializeComponent();
-            combinetion_Of_Tours = Program.BD.combinetion_Of_Tours.SingleOrDefault(x => x.idcombinetion_of_tours == id);
-
-            if (changing)
-            {
-                mainLabel.Text = "Редактирование";
-                textBox1.Text = combinetion_Of_Tours.combinetion_of_tours_name;
-                maskedTextBox1.Text = Utils.DecimalToString(combinetion_Of_Tours.combinetion_of_tours_price);
-            }
-            else
-            {
-                mainLabel.Text = "Добавление";
-            }
+            
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -104,6 +93,22 @@ namespace WindowsFormsApp1
                     Close();
                     return;
                 }
+            }
+        }
+
+        private void CombinedToursEditForm_Load(object sender, EventArgs e)
+        {
+            combinetion_Of_Tours = Program.BD.combinetion_Of_Tours.SingleOrDefault(x => x.idcombinetion_of_tours == id);
+
+            if (changing)
+            {
+                mainLabel.Text = "Редактирование";
+                textBox1.Text = combinetion_Of_Tours.combinetion_of_tours_name;
+                maskedTextBox1.Text = Utils.DecimalToString(combinetion_Of_Tours.combinetion_of_tours_price);
+            }
+            else
+            {
+                mainLabel.Text = "Добавление";
             }
         }
     }

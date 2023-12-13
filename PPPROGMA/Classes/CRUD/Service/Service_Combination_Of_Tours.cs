@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PPPROGMA.Classes.CRUD.Service
 {
-    internal class Service_Combination_Of_Tours
+    internal class Service_Combination_Of_Tours : IDisposable
     {
         DbConnection DB;
         public Service_Combination_Of_Tours()
@@ -27,6 +27,7 @@ namespace PPPROGMA.Classes.CRUD.Service
             if (allowDel(combinetion_Of_Tours))
             {
                 DB.combinetion_Of_Tours.Remove(combinetion_Of_Tours);
+                DB.SaveChanges();
                 return true;
             }
             return false;
@@ -66,6 +67,11 @@ namespace PPPROGMA.Classes.CRUD.Service
             }
 
             return countInRefTable == 0;
+        }
+
+        public void Dispose()
+        {
+            DB.Dispose();
         }
     }
 }

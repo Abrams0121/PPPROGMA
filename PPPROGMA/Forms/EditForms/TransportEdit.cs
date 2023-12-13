@@ -22,29 +22,14 @@ namespace WindowsFormsApp1
 
         public int id;
 
-        List<Sprav_transport_type> sprav_Transport_Types => Read.TransportTypeUpdate();
+        List<Sprav_transport_type> sprav_Transport_Types => Read.UpdateTranportType();
 
         Transport transport;
 
         public TransportEditForm()
         {
             InitializeComponent();
-            transport = Program.BD.transports.SingleOrDefault(x => x.idTransport == id);
-            comboBox1.DataSource = sprav_Transport_Types;
-            comboBox1.DisplayMember = "Sprav_Transport_typecol";
-            comboBox1.ValueMember = "idSprav_Transport_type";
-
-            if (changing)
-            {
-                mainLabel.Text = "Редактирование";
-                textBox1.Text = transport.Transport_name;
-                maskedTextBox1.Text = Utils.DecimalToString(transport.Transport_price);
-                comboBox1.SelectedValue = transport.idSprav_Transport_type;
-            }
-            else
-            {
-                mainLabel.Text = "Добавление";
-            }
+            
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -114,6 +99,26 @@ namespace WindowsFormsApp1
                     Close();
                     return;
                 }
+            }
+        }
+
+        private void TransportEditForm_Load(object sender, EventArgs e)
+        {
+            transport = Program.BD.transports.SingleOrDefault(x => x.idTransport == id);
+            comboBox1.DataSource = sprav_Transport_Types;
+            comboBox1.DisplayMember = "Sprav_Transport_typecol";
+            comboBox1.ValueMember = "idSprav_Transport_type";
+
+            if (changing)
+            {
+                mainLabel.Text = "Редактирование";
+                textBox1.Text = transport.Transport_name;
+                maskedTextBox1.Text = Utils.DecimalToString(transport.Transport_price);
+                comboBox1.SelectedValue = transport.idSprav_Transport_type;
+            }
+            else
+            {
+                mainLabel.Text = "Добавление";
             }
         }
     }

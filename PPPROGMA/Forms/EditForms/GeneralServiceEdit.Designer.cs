@@ -177,6 +177,7 @@ namespace WindowsFormsApp1
             this.Name = "GeneralServiceEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sprav_table_form";
+            this.Load += new System.EventHandler(this.GeneralServiceEditForm_Load);
             this.pnlBorder.ResumeLayout(false);
             this.pnlBorder.PerformLayout();
             this.ResumeLayout(false);

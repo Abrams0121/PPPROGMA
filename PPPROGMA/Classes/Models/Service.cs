@@ -60,7 +60,7 @@ namespace PPPROGMA.Classes.Models
 
         public bool allowDel()
         {
-            int countInRefTable = Program.BD.services_list.Include(v => v.idServices).Where(v => v.Services == this).Count();
+            int countInRefTable = Program.BD.services_list.Include(v => v.idServices).Where(v => v.Service == this).Count();
 
             if (countInRefTable > 0)
             {

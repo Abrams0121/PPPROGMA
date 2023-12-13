@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace PPPROGMA
 {
-    internal class Tours
+    internal class Tour
     {
         [Key]
         public int idTours {  get; set; } 
@@ -22,7 +22,7 @@ namespace PPPROGMA
         public decimal Tour_cost_For_one_person { get; set; }
         public decimal Tour_Profit {  get; set; }
 
-        public ICollection<Days_list> days_Lists { get; set; }
+        public ICollection<Tour_days> tour_Days { get; set; }
 
     }
 }

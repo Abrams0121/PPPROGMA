@@ -42,6 +42,8 @@ namespace WindowsFormsApp1
             this.ChangeButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.button1 = new System.Windows.Forms.Button();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -56,7 +58,7 @@ namespace WindowsFormsApp1
             this.pnlBorder.Location = new System.Drawing.Point(0, 0);
             this.pnlBorder.Margin = new System.Windows.Forms.Padding(2);
             this.pnlBorder.Name = "pnlBorder";
-            this.pnlBorder.Size = new System.Drawing.Size(1042, 23);
+            this.pnlBorder.Size = new System.Drawing.Size(1275, 23);
             this.pnlBorder.TabIndex = 0;
             // 
             // label1
@@ -76,7 +78,7 @@ namespace WindowsFormsApp1
             this.BtnClose.BackColor = System.Drawing.SystemColors.ControlDark;
             this.BtnClose.Dock = System.Windows.Forms.DockStyle.Right;
             this.BtnClose.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.BtnClose.Location = new System.Drawing.Point(998, 0);
+            this.BtnClose.Location = new System.Drawing.Point(1231, 0);
             this.BtnClose.Margin = new System.Windows.Forms.Padding(2);
             this.BtnClose.Name = "BtnClose";
             this.BtnClose.Size = new System.Drawing.Size(22, 23);
@@ -90,7 +92,7 @@ namespace WindowsFormsApp1
             this.btnMinimize.BackColor = System.Drawing.SystemColors.ControlDark;
             this.btnMinimize.Dock = System.Windows.Forms.DockStyle.Right;
             this.btnMinimize.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
-            this.btnMinimize.Location = new System.Drawing.Point(1020, 0);
+            this.btnMinimize.Location = new System.Drawing.Point(1253, 0);
             this.btnMinimize.Margin = new System.Windows.Forms.Padding(2);
             this.btnMinimize.Name = "btnMinimize";
             this.btnMinimize.Size = new System.Drawing.Size(22, 23);
@@ -150,7 +152,7 @@ namespace WindowsFormsApp1
             // AddButton
             // 
             this.AddButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.AddButton.Location = new System.Drawing.Point(855, 64);
+            this.AddButton.Location = new System.Drawing.Point(764, 53);
             this.AddButton.Margin = new System.Windows.Forms.Padding(2);
             this.AddButton.Name = "AddButton";
             this.AddButton.Size = new System.Drawing.Size(98, 29);
@@ -162,7 +164,7 @@ namespace WindowsFormsApp1
             // ChangeButton
             // 
             this.ChangeButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ChangeButton.Location = new System.Drawing.Point(855, 106);
+            this.ChangeButton.Location = new System.Drawing.Point(764, 95);
             this.ChangeButton.Margin = new System.Windows.Forms.Padding(2);
             this.ChangeButton.Name = "ChangeButton";
             this.ChangeButton.Size = new System.Drawing.Size(98, 29);
@@ -174,7 +176,7 @@ namespace WindowsFormsApp1
             // DeleteButton
             // 
             this.DeleteButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.DeleteButton.Location = new System.Drawing.Point(855, 147);
+            this.DeleteButton.Location = new System.Drawing.Point(764, 136);
             this.DeleteButton.Margin = new System.Windows.Forms.Padding(2);
             this.DeleteButton.Name = "DeleteButton";
             this.DeleteButton.Size = new System.Drawing.Size(98, 29);
@@ -186,7 +188,7 @@ namespace WindowsFormsApp1
             // ReturnButton
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReturnButton.Location = new System.Drawing.Point(935, 365);
+            this.ReturnButton.Location = new System.Drawing.Point(1186, 491);
             this.ReturnButton.Margin = new System.Windows.Forms.Padding(2);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(78, 29);
@@ -195,12 +197,32 @@ namespace WindowsFormsApp1
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(1000, 53);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(201, 26);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(1000, 95);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(93, 29);
+            this.button1.TabIndex = 8;
+            this.button1.Text = "Очистить";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // ServiceTable
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 18F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1042, 531);
+            this.ClientSize = new System.Drawing.Size(1275, 531);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.ReturnButton);
             this.Controls.Add(this.DeleteButton);
             this.Controls.Add(this.ChangeButton);
@@ -217,6 +239,7 @@ namespace WindowsFormsApp1
             this.pnlBorder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             this.ResumeLayout(false);
+            this.PerformLayout();
 
         }
 
@@ -227,7 +250,7 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button btnMinimize;
         private MySql.Data.MySqlClient.MySqlCommand mySqlCommand1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.DataGridView dataGridView2;
+        public System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.Button AddButton;
         private System.Windows.Forms.Button ChangeButton;
         private System.Windows.Forms.Button DeleteButton;
@@ -235,6 +258,8 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
     }
 }
 
