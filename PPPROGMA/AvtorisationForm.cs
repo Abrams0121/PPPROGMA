@@ -69,5 +69,11 @@ namespace PPPROGMA
         {
             textBox2.UseSystemPasswordChar = !checkBox1.Checked;
         }
+
+        private void AvtorisationForm_Activated(object sender, EventArgs e)
+        {
+            textBox1.Clear();
+            textBox2.Clear();
+        }
     }
 }

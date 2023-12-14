@@ -37,10 +37,8 @@ namespace PPPROGMA
 
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e)
         {
-            if ((e.KeyChar >= 'f'))
-            {
-
-            }
+            TextCheck.KeyCheck(e);
+            TextCheck.KeyCheckForNum(e);
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -50,7 +48,7 @@ namespace PPPROGMA
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
-
+           
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -75,7 +73,7 @@ namespace PPPROGMA
                         Sprav_Transport_typecol = textBox1.Text
                     };
 
-                    if (BDWORK.setName(textBox1.Text, type))
+                    if (BDWORK.setName(textBox1.Text,"_", type))
                     {
                         BDWORK.Insert(type);
                         Close();

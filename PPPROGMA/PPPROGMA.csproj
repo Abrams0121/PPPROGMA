@@ -182,6 +182,7 @@
     <Compile Include="Classes\Models\Tour_days.cs" />
     <Compile Include="Classes\Models\Transport.cs" />
     <Compile Include="Classes\Models\Transport_list.cs" />
+    <Compile Include="Classes\TextCheck.cs" />
     <Compile Include="Classes\Utils.cs" />
     <Compile Include="Connection.cs" />
     <Compile Include="AvtorisationForm.cs">

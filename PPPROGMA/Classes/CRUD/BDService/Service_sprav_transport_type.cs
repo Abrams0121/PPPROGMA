@@ -38,12 +38,30 @@ namespace PPPROGMA.Classes.CRUD.Service
             DB.SaveChanges();
         }
 
-        public bool setName(string name,Sprav_transport_type type)
+        public bool setName(string name, Sprav_transport_type type)
         {
-            /*if (name == type.Sprav_Transport_typecol)
+            if (name == type.Sprav_Transport_typecol)
             {
                 return true;
-            }*/
+            }
+
+
+            int count = DB.sprav_transport_type.Where(tv => tv.Sprav_Transport_typecol == name).Count();
+            if (count > 0)
+            {
+                Utils.Warning("Дублирование значения");
+                return false;
+            }
+
+            return true;
+        }
+
+        public bool setName(string name,string oldName,Sprav_transport_type type)
+        {
+            if (name == oldName)
+            {
+                return true;
+            }
 
 
             int count = DB.sprav_transport_type.Where(tv => tv.Sprav_Transport_typecol == name).Count();
