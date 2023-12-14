@@ -15,9 +15,9 @@ namespace WindowsFormsApp1
 {
     public partial class CombinedToursEditForm : Form
     {
-        bool changing = false;
+        public bool changing = false;
 
-        int id;
+        public int id;
 
         Combinetion_of_tours combinetion_Of_Tours;
 

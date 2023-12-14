@@ -59,7 +59,7 @@ namespace PPPROGMA
 
         public bool allowDel(Service service)
         {
-            int countInRefTable = DB.services_list.Include(v => v.idServices).Where(v => v.Service == service).Count();
+            int countInRefTable = DB.services_list.Include(v => v.Service).Where(v => v.Service == service).Count();
 
             if (countInRefTable > 0)
             {

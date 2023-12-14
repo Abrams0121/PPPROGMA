@@ -80,7 +80,7 @@ namespace PPPROGMA.Classes.CRUD.Service
         {
             using (DbConnection DB = new DbConnection())
             {
-                return DB.transports.Where(x => x.idTransport == id).ToList();
+                return DB.transports.Include(x => x.Sprav_Transport_type).Where(x => x.idTransport == id).ToList();
             }
         }
 
@@ -96,7 +96,7 @@ namespace PPPROGMA.Classes.CRUD.Service
         {
             using (DbConnection DB = new DbConnection())
             {
-                return DB.transports.ToList();
+                return DB.transports.Include(x => x.Sprav_Transport_type).ToList();
             }
         }
 

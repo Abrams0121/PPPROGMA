@@ -17,6 +17,7 @@ namespace PPPROGMA
         public AvtorisationForm()
         {
             InitializeComponent();
+            textBox2.UseSystemPasswordChar = true;
         }
 
         private void label2_Click(object sender, EventArgs e)
@@ -62,6 +63,11 @@ namespace PPPROGMA
         {
             textBox1.Clear();
             textBox2.Clear();
+        }
+
+        private void checkBox1_CheckedChanged(object sender, EventArgs e)
+        {
+            textBox2.UseSystemPasswordChar = !checkBox1.Checked;
         }
     }
 }

@@ -14,9 +14,9 @@ namespace WindowsFormsApp1
 {
     public partial class GeneralServiceEditForm : Form
     {
-        bool changing = false;
+        public bool changing = false;
 
-        int id;
+        public int id;
 
         General_service general_Service;
 

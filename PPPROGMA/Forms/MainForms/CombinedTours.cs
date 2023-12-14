@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         public CombinedToursTable()
         {
             InitializeComponent();
+            dataGridView2.AutoGenerateColumns = false;
             combinetion_Of_Tours = Service_Combination_Of_Tours.UpdateCombinetion_of_tours();
             dataGridView2.DataSource = combinetion_Of_Tours;
         }
@@ -35,7 +36,10 @@ namespace WindowsFormsApp1
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-
+            CombinedToursEditForm tourConstructorForm = new CombinedToursEditForm();
+            tourConstructorForm.ShowDialog();
+            combinetion_Of_Tours = Service_Combination_Of_Tours.UpdateCombinetion_of_tours();
+            dataGridView2.DataSource = combinetion_Of_Tours;
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -45,10 +49,24 @@ namespace WindowsFormsApp1
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            int id;
+            if (!int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            {
+                Utils.Error("Невозможно удалить пустую строку");
+                return;
+            }
+
+            var General_service = Service_Combination_Of_Tours.UpdateCombinetion_of_tours(id);
             string text = "Вы уверены что хотите удалить запись?";
             if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                //
+                using (Service_Combination_Of_Tours DBWORk = new Service_Combination_Of_Tours())
+                {
+                    DBWORk.delete(General_service);
+                }
+                combinetion_Of_Tours = Service_Combination_Of_Tours.UpdateCombinetion_of_tours();
+                dataGridView2.DataSource = combinetion_Of_Tours;
+
             }
 
 
@@ -56,7 +74,20 @@ namespace WindowsFormsApp1
 
         private void ChangeButton_Click(object sender, EventArgs e)
         {
-
+            int id;
+            if (!int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            {
+                Utils.Error("Невозможно изменить пустую строку");
+                return;
+            }
+            CombinedToursEditForm tourConstructorForm = new CombinedToursEditForm()
+            {
+                changing = true,
+                id = id,
+            };
+            tourConstructorForm.ShowDialog();
+            combinetion_Of_Tours = Service_Combination_Of_Tours.UpdateCombinetion_of_tours();
+            dataGridView2.DataSource = combinetion_Of_Tours;
         }
     }
 }

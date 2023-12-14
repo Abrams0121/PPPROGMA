@@ -19,9 +19,9 @@ namespace WindowsFormsApp1
 
         List<Service> services;
         public ServiceTable()
-        {
-            dataGridView2.AutoGenerateColumns = false;
+        { 
             InitializeComponent();
+            dataGridView2.AutoGenerateColumns = false;
             services = CrudService.UpdateService();
             dataGridView2.DataSource = services;
         }
@@ -38,7 +38,10 @@ namespace WindowsFormsApp1
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-
+            ServiceEditForm tourConstructorForm = new ServiceEditForm();
+            tourConstructorForm.ShowDialog();
+            services = CrudService.UpdateService();
+            dataGridView2.DataSource = services;
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -48,7 +51,15 @@ namespace WindowsFormsApp1
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            var service = CrudService.UpdateService(int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
+
+            int id;
+            if (dataGridView2.RowCount == 0 || !int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            {
+                Utils.Error("Невозможно удалить пустую строку");
+                return;
+            }
+
+            var service = CrudService.UpdateService(id);
             string text = "Вы уверены что хотите удалить запись?";
             if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
@@ -65,7 +76,20 @@ namespace WindowsFormsApp1
 
         private void ChangeButton_Click(object sender, EventArgs e)
         {
-
+            int id;
+            if (dataGridView2.RowCount == 0 || !int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            {
+                Utils.Error("Невозможно изменить пустую строку");
+                return;
+            }
+            ServiceEditForm tourConstructorForm = new ServiceEditForm()
+            {
+                changing = true,
+                id = id,
+            };
+            tourConstructorForm.ShowDialog();
+            services = CrudService.UpdateService();
+            dataGridView2.DataSource = services;
         }
 
         private void textBox1_TextChanged(object sender, EventArgs e)
@@ -88,6 +112,11 @@ namespace WindowsFormsApp1
             textBox1.Clear();
             services = CrudService.UpdateService();
             dataGridView2.DataSource = services;
+        }
+
+        private void ServiceTable_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

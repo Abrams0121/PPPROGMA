@@ -274,6 +274,7 @@ namespace WindowsFormsApp1
             this.Name = "ToursTableForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Sprav_table_form";
+            this.Load += new System.EventHandler(this.ToursTableForm_Load);
             this.pnlBorder.ResumeLayout(false);
             this.pnlBorder.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();

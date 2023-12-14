@@ -10,9 +10,9 @@ namespace WindowsFormsApp1
 {
     public partial class TourConstructorForm : Form
     {
-        bool changing;
+        public bool changing;
 
-        int id;
+        public int id;
 
         Tour tour;
         List<Tour_days> days_list;

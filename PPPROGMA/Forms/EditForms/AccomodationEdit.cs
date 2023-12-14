@@ -92,7 +92,7 @@ namespace WindowsFormsApp1
             }
             else
             {
-                accommodation = DBWORK.ForUpdateAccommodation(id)
+                accommodation = DBWORK.ForUpdateAccommodation(id);
                 if (DBWORK.setName(textBox1.Text, accommodation))
                 {
                     accommodation.Accommodation_name = textBox1.Text;

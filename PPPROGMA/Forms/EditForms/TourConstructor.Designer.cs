@@ -42,6 +42,9 @@ namespace WindowsFormsApp1
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label1 = new System.Windows.Forms.Label();
             this.transportDataGridView = new System.Windows.Forms.DataGridView();
+            this.TransportIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.serviceDataGridView = new System.Windows.Forms.DataGridView();
             this.ServiceIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -55,6 +58,8 @@ namespace WindowsFormsApp1
             this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.foodDataGridView = new System.Windows.Forms.DataGridView();
+            this.FoodIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button4 = new System.Windows.Forms.Button();
@@ -66,6 +71,8 @@ namespace WindowsFormsApp1
             this.button10 = new System.Windows.Forms.Button();
             this.button11 = new System.Windows.Forms.Button();
             this.tourDaysDataGridView = new System.Windows.Forms.DataGridView();
+            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button12 = new System.Windows.Forms.Button();
             this.button13 = new System.Windows.Forms.Button();
             this.label3 = new System.Windows.Forms.Label();
@@ -80,13 +87,6 @@ namespace WindowsFormsApp1
             this.ComToursIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Index = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FoodIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.TransportIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceDataGridView)).BeginInit();
@@ -240,6 +240,28 @@ namespace WindowsFormsApp1
             this.transportDataGridView.Size = new System.Drawing.Size(245, 161);
             this.transportDataGridView.TabIndex = 16;
             // 
+            // TransportIndex
+            // 
+            this.TransportIndex.DataPropertyName = "idTransport_list";
+            this.TransportIndex.HeaderText = "Column5";
+            this.TransportIndex.Name = "TransportIndex";
+            this.TransportIndex.ReadOnly = true;
+            this.TransportIndex.Visible = false;
+            // 
+            // Column5
+            // 
+            this.Column5.DataPropertyName = "transportName";
+            this.Column5.HeaderText = "Название транспорта";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            // 
+            // Column6
+            // 
+            this.Column6.DataPropertyName = "transportPrice";
+            this.Column6.HeaderText = "Цена транспорта";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
+            // 
             // serviceDataGridView
             // 
             this.serviceDataGridView.AllowUserToAddRows = false;
@@ -362,6 +384,21 @@ namespace WindowsFormsApp1
             this.foodDataGridView.Size = new System.Drawing.Size(155, 122);
             this.foodDataGridView.TabIndex = 20;
             // 
+            // FoodIndex
+            // 
+            this.FoodIndex.DataPropertyName = "idfood_list";
+            this.FoodIndex.HeaderText = "Column2";
+            this.FoodIndex.Name = "FoodIndex";
+            this.FoodIndex.ReadOnly = true;
+            this.FoodIndex.Visible = false;
+            // 
+            // Column2
+            // 
+            this.Column2.DataPropertyName = "Food_price";
+            this.Column2.HeaderText = "Цена";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(198, 188);
@@ -476,6 +513,21 @@ namespace WindowsFormsApp1
             this.tourDaysDataGridView.ReadOnly = true;
             this.tourDaysDataGridView.Size = new System.Drawing.Size(148, 82);
             this.tourDaysDataGridView.TabIndex = 31;
+            // 
+            // Index
+            // 
+            this.Index.DataPropertyName = "idTour_days";
+            this.Index.HeaderText = "ID";
+            this.Index.Name = "Index";
+            this.Index.ReadOnly = true;
+            this.Index.Visible = false;
+            // 
+            // Column1
+            // 
+            this.Column1.DataPropertyName = "dayName";
+            this.Column1.HeaderText = "День";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
             // 
             // button12
             // 
@@ -606,58 +658,6 @@ namespace WindowsFormsApp1
             this.Column12.HeaderText = "Цена";
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
-            // 
-            // Index
-            // 
-            this.Index.DataPropertyName = "idTour_days";
-            this.Index.HeaderText = "ID";
-            this.Index.Name = "Index";
-            this.Index.ReadOnly = true;
-            this.Index.Visible = false;
-            // 
-            // Column1
-            // 
-            this.Column1.DataPropertyName = "dayName";
-            this.Column1.HeaderText = "День";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            // 
-            // FoodIndex
-            // 
-            this.FoodIndex.DataPropertyName = "idfood_list";
-            this.FoodIndex.HeaderText = "Column2";
-            this.FoodIndex.Name = "FoodIndex";
-            this.FoodIndex.ReadOnly = true;
-            this.FoodIndex.Visible = false;
-            // 
-            // Column2
-            // 
-            this.Column2.DataPropertyName = "Food_price";
-            this.Column2.HeaderText = "Цена";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            // 
-            // TransportIndex
-            // 
-            this.TransportIndex.DataPropertyName = "idTransport_list";
-            this.TransportIndex.HeaderText = "Column5";
-            this.TransportIndex.Name = "TransportIndex";
-            this.TransportIndex.ReadOnly = true;
-            this.TransportIndex.Visible = false;
-            // 
-            // Column5
-            // 
-            this.Column5.DataPropertyName = "transportName";
-            this.Column5.HeaderText = "Название транспорта";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            // 
-            // Column6
-            // 
-            this.Column6.DataPropertyName = "transportPrice";
-            this.Column6.HeaderText = "Цена транспорта";
-            this.Column6.Name = "Column6";
-            this.Column6.ReadOnly = true;
             // 
             // TourConstructorForm
             // 

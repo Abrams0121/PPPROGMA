@@ -1,4 +1,6 @@
-﻿using System;
+﻿using PPPROGMA.Classes.Models;
+using PPPROGMA;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +14,14 @@ namespace WindowsFormsApp1
 {
     public partial class GeneralServicesTable : Form
     {
+        List<General_service> general_Services;
+
         public GeneralServicesTable()
         {
             InitializeComponent();
+            dataGridView2.AutoGenerateColumns = false;
+            general_Services = ServiceGeneralServices.UpdateGeneral_service();
+            dataGridView2.DataSource = general_Services;
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -29,7 +36,13 @@ namespace WindowsFormsApp1
 
         private void AddButton_Click(object sender, EventArgs e)
         {
-
+            GeneralServiceEditForm tourConstructorForm = new GeneralServiceEditForm()
+            {
+                changing = false
+            };
+            tourConstructorForm.ShowDialog();
+            general_Services = ServiceGeneralServices.UpdateGeneral_service();
+            dataGridView2.DataSource = general_Services;
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -39,10 +52,24 @@ namespace WindowsFormsApp1
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
+            int id;
+            if (!int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            {
+                Utils.Error("Невозможно удалить пустую строку");
+                return;
+            }
+
+            var General_service = ServiceGeneralServices.UpdateGeneral_service(id);
             string text = "Вы уверены что хотите удалить запись?";
             if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                //
+                using (ServiceGeneralServices DBWORk = new ServiceGeneralServices())
+                {
+                    DBWORk.delete(General_service);
+                }
+                general_Services = ServiceGeneralServices.UpdateGeneral_service();
+                dataGridView2.DataSource = general_Services;
+
             }
 
 
@@ -50,7 +77,20 @@ namespace WindowsFormsApp1
 
         private void ChangeButton_Click(object sender, EventArgs e)
         {
-
+            int id;
+            if (!int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            {
+                Utils.Error("Невозможно изменить пустую строку");
+                return;
+            }
+            GeneralServiceEditForm tourConstructorForm = new GeneralServiceEditForm()
+            {
+                changing = true,
+                id = id,
+            };
+            tourConstructorForm.ShowDialog();
+            general_Services = ServiceGeneralServices.UpdateGeneral_service();
+            dataGridView2.DataSource = general_Services;
         }
     }
 }

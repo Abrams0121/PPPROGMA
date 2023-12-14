@@ -19,6 +19,7 @@ namespace WindowsFormsApp1
         public AccomodationForm()
         {
             InitializeComponent();
+            dataGridView2.AutoGenerateColumns = false;
             accommodations = ServiceAccomodation.UpdateAccommodation();
             dataGridView2.DataSource = accommodations;
         }
@@ -38,6 +39,7 @@ namespace WindowsFormsApp1
             AccomodationEditForm accomodationEditForm = new AccomodationEditForm();
             accomodationEditForm.ShowDialog();
             accommodations = ServiceAccomodation.UpdateAccommodation();
+            dataGridView2.DataSource = accommodations;
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -61,6 +63,7 @@ namespace WindowsFormsApp1
             {
                 BDWORK.delete(accomodation);
                 accommodations = ServiceAccomodation.UpdateAccommodation();
+                dataGridView2.DataSource = accommodations;
             }
 
 
@@ -82,6 +85,7 @@ namespace WindowsFormsApp1
             };
             accomodationEditForm.ShowDialog();
             accommodations = ServiceAccomodation.UpdateAccommodation();
+            dataGridView2.DataSource = accommodations;
         }
 
         private void AccomodationForm_Load(object sender, EventArgs e)
