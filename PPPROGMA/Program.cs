@@ -11,7 +11,6 @@ namespace PPPROGMA
     internal static class Program
     {
 
-        public static DbConnection BD = new DbConnection();
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

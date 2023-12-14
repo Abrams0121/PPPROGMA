@@ -1,4 +1,5 @@
 ﻿using Microsoft.EntityFrameworkCore;
+using PPPROGMA.Classes.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -39,10 +40,10 @@ namespace PPPROGMA.Classes.CRUD.Service
 
         public bool setName(string name, Accommodation accommodation)
         {
-            if (name == accommodation.Accommodation_name)
+            /*if (name == accommodation.Accommodation_name)
             {
                 return true;
-            }
+            }*/
 
 
             int count = DB.accommodations.Where(tv => tv.Accommodation_name == name).Count();
@@ -66,6 +67,27 @@ namespace PPPROGMA.Classes.CRUD.Service
             }
 
             return countInRefTable == 0;
+        }
+
+        public Accommodation ForUpdateAccommodation(int id)
+        {
+            return DB.accommodations.SingleOrDefault(x => x.idAccommodation == id);
+        }
+
+        public static Accommodation UpdateAccommodation(int id)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.accommodations.SingleOrDefault(x => x.idAccommodation == id);
+            }
+        }
+
+        public static List<Accommodation> UpdateAccommodation()
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.accommodations.ToList();
+            }
         }
 
         public void Dispose()

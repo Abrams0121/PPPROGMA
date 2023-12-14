@@ -92,6 +92,7 @@ namespace WindowsFormsApp1
             }
             else
             {
+                accommodation = DBWORK.ForUpdateAccommodation(id)
                 if (DBWORK.setName(textBox1.Text, accommodation))
                 {
                     accommodation.Accommodation_name = textBox1.Text;
@@ -105,7 +106,7 @@ namespace WindowsFormsApp1
 
         private void AccomodationEditForm_Load(object sender, EventArgs e)
         {
-            accommodation = Program.BD.accommodations.SingleOrDefault(x => x.idAccommodation == id);
+            accommodation = ServiceAccomodation.UpdateAccommodation(id);
 
             if (changing)
             {

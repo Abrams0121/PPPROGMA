@@ -20,8 +20,9 @@ namespace WindowsFormsApp1
         List<Service> services;
         public ServiceTable()
         {
+            dataGridView2.AutoGenerateColumns = false;
             InitializeComponent();
-            services = Program.BD.services.ToList();
+            services = CrudService.UpdateService();
             dataGridView2.DataSource = services;
         }
 
@@ -47,12 +48,16 @@ namespace WindowsFormsApp1
 
         private void DeleteButton_Click(object sender, EventArgs e)
         {
-            var service = Program.BD.services.FirstOrDefault(x => x.idServices == int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
+            var service = CrudService.UpdateService(int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
             string text = "Вы уверены что хотите удалить запись?";
             if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                service.delete();
-                services = Program.BD.services.ToList();
+                using (CrudService DBWORk = new CrudService())
+                {
+                    DBWORk.delete(service);
+                }
+                services = CrudService.UpdateService();
+                dataGridView2.DataSource = services;
             }
 
 
@@ -67,20 +72,22 @@ namespace WindowsFormsApp1
         {
             if (!String.IsNullOrEmpty(textBox1.Text))
             {
-                services.Clear();
-                services = Program.BD.services.Where(x => EF.Functions.Like(x.Service_name,textBox1.Text)).ToList();
+                
+                services = CrudService.SearchForSpecific(textBox1.Text);
+                dataGridView2.DataSource = services;
             }else
             {
-                services.Clear();
-                services = Program.BD.services.ToList();
+                services = CrudService.UpdateService();
+                dataGridView2.DataSource = services;
             }
             
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            services.Clear();
-            services = Program.BD.services.ToList();
+            textBox1.Clear();
+            services = CrudService.UpdateService();
+            dataGridView2.DataSource = services;
         }
     }
 }

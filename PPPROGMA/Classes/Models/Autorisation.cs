@@ -19,20 +19,6 @@ namespace PPPROGMA
 
         [NotMapped]
         internal static Autorisation AuthUser = null;
-        public static bool auth(string login, string password)
-        {
-            Autorisation user = Program.BD.Autorisation
-                .Where(u => u.Login == login && u.Password == password)
-                .FirstOrDefault();
 
-            if (user == null)
-            {
-                return false;
-            }
-
-            AuthUser = user;
-            return true;
-
-        }
     }
 }

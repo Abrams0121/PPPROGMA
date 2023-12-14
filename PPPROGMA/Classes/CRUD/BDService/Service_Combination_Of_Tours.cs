@@ -40,10 +40,10 @@ namespace PPPROGMA.Classes.CRUD.Service
 
         public bool setName(string name, Combinetion_of_tours combinetion_Of_Tours)
         {
-            if (name == combinetion_Of_Tours.combinetion_of_tours_name)
+            /*if (name == combinetion_Of_Tours.combinetion_of_tours_name)
             {
                 return true;
-            }
+            }*/
 
 
             int count = DB.combinetion_Of_Tours.Where(tv => tv.combinetion_of_tours_name == name).Count();
@@ -67,6 +67,27 @@ namespace PPPROGMA.Classes.CRUD.Service
             }
 
             return countInRefTable == 0;
+        }
+
+        public Combinetion_of_tours ForUpdateTransport(int id)
+        {
+            return DB.combinetion_Of_Tours.SingleOrDefault(x => x.idcombinetion_of_tours == id);
+        }
+
+        public static Combinetion_of_tours UpdateCombinetion_of_tours(int id)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.combinetion_Of_Tours.SingleOrDefault(x => x.idcombinetion_of_tours == id);
+            }
+        }
+
+        public static List<Combinetion_of_tours> UpdateCombinetion_of_tours()
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.combinetion_Of_Tours.ToList();
+            }
         }
 
         public void Dispose()

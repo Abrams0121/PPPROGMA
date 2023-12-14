@@ -83,6 +83,7 @@ namespace WindowsFormsApp1
             }
             else
             {
+                general_Service = DBWORK.ForUpdateTour(id);
                 if (DBWORK.setName(textBox1.Text, general_Service))
                 {
                     general_Service.general_Service_name = textBox1.Text;
@@ -96,7 +97,7 @@ namespace WindowsFormsApp1
 
         private void GeneralServiceEditForm_Load(object sender, EventArgs e)
         {
-            general_Service = Program.BD.general_services.SingleOrDefault(x => x.idgeneral_Service == id);
+            general_Service = ServiceGeneralServices.UpdateGeneral_service(id);
 
             if (changing)
             {

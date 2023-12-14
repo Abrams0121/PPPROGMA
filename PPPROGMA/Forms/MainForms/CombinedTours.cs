@@ -1,4 +1,5 @@
 ﻿using PPPROGMA;
+using PPPROGMA.Classes.CRUD.Service;
 using PPPROGMA.Classes.Models;
 using System;
 using System.Collections.Generic;
@@ -18,7 +19,7 @@ namespace WindowsFormsApp1
         public CombinedToursTable()
         {
             InitializeComponent();
-            combinetion_Of_Tours = Program.BD.combinetion_Of_Tours.ToList();
+            combinetion_Of_Tours = Service_Combination_Of_Tours.UpdateCombinetion_of_tours();
             dataGridView2.DataSource = combinetion_Of_Tours;
         }
 

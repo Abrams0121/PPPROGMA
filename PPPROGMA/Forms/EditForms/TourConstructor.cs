@@ -67,7 +67,7 @@ namespace WindowsFormsApp1
 
             if (changing)
             {
-                tour = Program.BD.tours.SingleOrDefault(x => x.idTours == id);
+                tour = ServiceTour.UpdateTour(id);
 
                 using (ServiceList DBWORk = new ServiceList())
                 {

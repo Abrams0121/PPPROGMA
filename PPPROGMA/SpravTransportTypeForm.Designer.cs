@@ -34,12 +34,12 @@ namespace WindowsFormsApp1
             this.BtnClose = new System.Windows.Forms.Button();
             this.btnMinimize = new System.Windows.Forms.Button();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.SpravName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.AddButton = new System.Windows.Forms.Button();
             this.ChangeButton = new System.Windows.Forms.Button();
             this.DeleteButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
-            this.id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.SpravName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             this.SuspendLayout();
@@ -112,8 +112,23 @@ namespace WindowsFormsApp1
             this.dataGridView2.Location = new System.Drawing.Point(0, 23);
             this.dataGridView2.Margin = new System.Windows.Forms.Padding(2);
             this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.ReadOnly = true;
             this.dataGridView2.Size = new System.Drawing.Size(205, 368);
             this.dataGridView2.TabIndex = 2;
+            // 
+            // id
+            // 
+            this.id.DataPropertyName = "idSprav_Transport_type";
+            this.id.HeaderText = "Column1";
+            this.id.Name = "id";
+            this.id.Visible = false;
+            // 
+            // SpravName
+            // 
+            this.SpravName.DataPropertyName = "Sprav_Transport_typecol";
+            this.SpravName.HeaderText = "Название типа";
+            this.SpravName.Name = "SpravName";
+            this.SpravName.Width = 300;
             // 
             // AddButton
             // 
@@ -162,20 +177,6 @@ namespace WindowsFormsApp1
             this.ReturnButton.Text = "Назад";
             this.ReturnButton.UseVisualStyleBackColor = true;
             this.ReturnButton.Click += new System.EventHandler(this.ReturnButton_Click);
-            // 
-            // id
-            // 
-            this.id.DataPropertyName = "idSprav_Transport_type";
-            this.id.HeaderText = "Column1";
-            this.id.Name = "id";
-            this.id.Visible = false;
-            // 
-            // SpravName
-            // 
-            this.SpravName.DataPropertyName = "Sprav_Transport_typecol";
-            this.SpravName.HeaderText = "Название типа";
-            this.SpravName.Name = "SpravName";
-            this.SpravName.Width = 300;
             // 
             // SpravTransportTypeForm
             // 

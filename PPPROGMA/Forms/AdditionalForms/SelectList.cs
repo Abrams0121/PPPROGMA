@@ -89,31 +89,31 @@ namespace WindowsFormsApp1
                         dataGridView1.Columns["ID"].DataPropertyName = "idTransport";
                         dataGridView1.Columns["ColName"].DataPropertyName = "Transport_name";
                         dataGridView1.Columns["Perice"].DataPropertyName = "Transport_price";
-                        dataGridView1.DataSource = listView.UpdateList<Transport>();
+                        dataGridView1.DataSource = Read.UpdateList<Transport>();
                         break;
                     case "Service":
                         dataGridView1.Columns["ID"].DataPropertyName = "idServices";
                         dataGridView1.Columns["ColName"].DataPropertyName = "Service_name";
                         dataGridView1.Columns["Perice"].DataPropertyName = "Service_cost";
-                        dataGridView1.DataSource = listView.UpdateList<Service>();
+                        dataGridView1.DataSource = Read.UpdateList<Service>();
                         break;
                     case "General_service":
                         dataGridView1.Columns["ID"].DataPropertyName = "idgeneral_Service";
                         dataGridView1.Columns["ColName"].DataPropertyName = "general_Service_name";
                         dataGridView1.Columns["Perice"].DataPropertyName = "general_Service_price";
-                        dataGridView1.DataSource = listView.UpdateList<General_service>();
+                        dataGridView1.DataSource = Read.UpdateList<General_service>();
                         break;
                     case "Combinetion_of_tours":
                         dataGridView1.Columns["ID"].DataPropertyName = "idcombinetion_of_tours";
                         dataGridView1.Columns["ColName"].DataPropertyName = "combinetion_of_tours_name";
                         dataGridView1.Columns["Perice"].DataPropertyName = "combinetion_of_tours_price";
-                        dataGridView1.DataSource = listView.UpdateList<Combinetion_of_tours>();
+                        dataGridView1.DataSource = Read.UpdateList<Combinetion_of_tours>();
                         break;
                     case "Accommodation":
                         dataGridView1.Columns["ID"].DataPropertyName = "idAccommodation";
                         dataGridView1.Columns["ColName"].DataPropertyName = "Accommodation_name";
                         dataGridView1.Columns["Perice"].DataPropertyName = "Price_for_one_person";
-                        dataGridView1.DataSource = listView.UpdateList<Accommodation>();
+                        dataGridView1.DataSource = Read.UpdateList<Accommodation>();
                         break;
                     default:
                         break;

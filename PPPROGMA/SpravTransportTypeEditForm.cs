@@ -22,16 +22,7 @@ namespace PPPROGMA
         public SpravTransportTypeEditForm()
         {   
             InitializeComponent();
-            type = Program.BD.sprav_transport_type.SingleOrDefault(x => x.idSprav_Transport_type == index);
-            if (changing)
-            {
-                mainLabel.Text = "Редактирование";
-                textBox1.Text = type.Sprav_Transport_typecol;
-            }
-            else
-            {
-                mainLabel.Text = "Добавление";
-            }
+            
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -75,31 +66,48 @@ namespace PPPROGMA
                 return;
             }
 
-            Service_sprav_transport_type BDWORK = new Service_sprav_transport_type();
-
-            if (!changing) 
+            using (Service_sprav_transport_type BDWORK = new Service_sprav_transport_type())
             {
-                type = new Sprav_transport_type()
+                if (!changing)
                 {
-                    Sprav_Transport_typecol = textBox1.Text
-                };
+                    type = new Sprav_transport_type()
+                    {
+                        Sprav_Transport_typecol = textBox1.Text
+                    };
 
-                if (BDWORK.setName(textBox1.Text,type))
-                {
-                    BDWORK.Insert(type);
-                    Close();
-                    return;
+                    if (BDWORK.setName(textBox1.Text, type))
+                    {
+                        BDWORK.Insert(type);
+                        Close();
+                        return;
+                    }
                 }
+                else
+                {
+                    Sprav_transport_type type = BDWORK.ForUpdateTransport(index);
+                    if (BDWORK.setName(textBox1.Text, type))
+                    {
+                        type.Sprav_Transport_typecol = textBox1.Text;
+                        BDWORK.Update();
+                        Close();
+                        return;
+                    }
+                }
+            }
+
+        }
+
+        private void SpravTransportTypeEditForm_Load(object sender, EventArgs e)
+        {
+            type = Service_sprav_transport_type.UpdateTransport(index);
+            if (changing)
+            {
+                mainLabel.Text = "Редактирование";
+                textBox1.Text = type.Sprav_Transport_typecol;
             }
             else
             {
-                if (BDWORK.setName(textBox1.Text,type))
-                {
-                    type.Sprav_Transport_typecol = textBox1.Text;
-                    BDWORK.Update();
-                    Close();
-                    return;
-                }
+                mainLabel.Text = "Добавление";
             }
         }
     }

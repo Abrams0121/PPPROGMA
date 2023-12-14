@@ -41,10 +41,10 @@ namespace PPPROGMA.Classes.CRUD.Service
 
         public bool setName(string name, Transport transport)
         {
-            if (name == transport.Transport_name)
+            /*if (name == transport.Transport_name)
             {
                 return true;
-            }
+            }*/
 
 
             int count = DB.transports.Where(tv => tv.Transport_name == name).Count();
@@ -68,6 +68,36 @@ namespace PPPROGMA.Classes.CRUD.Service
             }
 
             return countInRefTable == 0;
+        }
+
+
+        public Transport ForUpdateTransport(int id)
+        {
+            return DB.transports.SingleOrDefault(x => x.idTransport == id);
+        }
+
+        public static List<Transport> SearchSpecific(int id)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.transports.Where(x => x.idTransport == id).ToList();
+            }
+        }
+
+        public static Transport UpdateTransport(int id)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.transports.SingleOrDefault(x => x.idTransport == id);
+            }
+        }
+
+        public static List<Transport> UpdateTransport()
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.transports.ToList();
+            }
         }
 
         public void Dispose()

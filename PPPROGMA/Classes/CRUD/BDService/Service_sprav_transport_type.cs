@@ -40,10 +40,10 @@ namespace PPPROGMA.Classes.CRUD.Service
 
         public bool setName(string name,Sprav_transport_type type)
         {
-            if (name == type.Sprav_Transport_typecol)
+            /*if (name == type.Sprav_Transport_typecol)
             {
                 return true;
-            }
+            }*/
 
 
             int count = DB.sprav_transport_type.Where(tv => tv.Sprav_Transport_typecol == name).Count();
@@ -53,13 +53,12 @@ namespace PPPROGMA.Classes.CRUD.Service
                 return false;
             }
 
-            type.Sprav_Transport_typecol = name;
             return true;
         }
 
         public bool allowDel(Sprav_transport_type type)
         {
-            int countInRefTable = DB.transports.Include(v => v.idSprav_Transport_type).Where(v => v.Sprav_Transport_type == type).Count();
+            int countInRefTable = DB.transports.Include(v => v.Sprav_Transport_type).Where(v => v.Sprav_Transport_type == type).Count();
 
             if (countInRefTable > 0)
             {
@@ -68,6 +67,28 @@ namespace PPPROGMA.Classes.CRUD.Service
 
             return countInRefTable == 0;
         }
+
+        public Sprav_transport_type ForUpdateTransport(int id)
+        {
+            return DB.sprav_transport_type.SingleOrDefault(x => x.idSprav_Transport_type == id);
+        }
+
+        public static Sprav_transport_type UpdateTransport(int id)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.sprav_transport_type.SingleOrDefault(x => x.idSprav_Transport_type == id);
+            }
+        }
+
+        public static List<Sprav_transport_type> UpdateTransport()
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.sprav_transport_type.ToList();
+            }
+        }
+
 
         public void Dispose() 
         {

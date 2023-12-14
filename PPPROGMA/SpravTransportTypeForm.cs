@@ -22,7 +22,8 @@ namespace WindowsFormsApp1
         public SpravTransportTypeForm()
         {
             InitializeComponent();
-            sprav_Transport_Types = Read.TransportTypeUpdate();
+            dataGridView2.AutoGenerateColumns = false;
+            sprav_Transport_Types = Read.UpdateTranportType();
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -39,7 +40,8 @@ namespace WindowsFormsApp1
         {
             SpravTransportTypeEditForm frm = new SpravTransportTypeEditForm();
             frm.ShowDialog();
-            sprav_Transport_Types = Read.TransportTypeUpdate();
+            sprav_Transport_Types = Read.UpdateTranportType();
+            dataGridView2.DataSource = sprav_Transport_Types;
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -55,14 +57,18 @@ namespace WindowsFormsApp1
                 Utils.Error("Невозможно удалить пустую строку");
                 return;
             }
-            Service_sprav_transport_type BDWORK = new Service_sprav_transport_type();
+            
 
-            var type = Program.BD.sprav_transport_type.FirstOrDefault(x => x.idSprav_Transport_type == int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
+            var type = Service_sprav_transport_type.UpdateTransport(int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
             string text = "Вы уверены что хотите удалить запись?";
             if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
-                BDWORK.delete(type);
-                sprav_Transport_Types = Read.TransportTypeUpdate();
+                using (Service_sprav_transport_type BDWORK = new Service_sprav_transport_type())
+                {
+                    BDWORK.delete(type);
+                }
+                sprav_Transport_Types = Read.UpdateTranportType();
+                dataGridView2.DataSource = sprav_Transport_Types;
             }
 
 
@@ -82,7 +88,9 @@ namespace WindowsFormsApp1
                 index = id
             };
             frm.ShowDialog();
-            sprav_Transport_Types = Read.TransportTypeUpdate();
+            
+            sprav_Transport_Types = Read.UpdateTranportType();
+            dataGridView2.DataSource = sprav_Transport_Types;
         }
 
         private void SpravTransportTypeForm_Load(object sender, EventArgs e)

@@ -19,7 +19,7 @@ namespace WindowsFormsApp1
         public AccomodationForm()
         {
             InitializeComponent();
-            accommodations = Program.BD.accommodations.ToList();
+            accommodations = ServiceAccomodation.UpdateAccommodation();
             dataGridView2.DataSource = accommodations;
         }
 
@@ -37,7 +37,7 @@ namespace WindowsFormsApp1
         {
             AccomodationEditForm accomodationEditForm = new AccomodationEditForm();
             accomodationEditForm.ShowDialog();
-            accommodations = Program.BD.accommodations.ToList();
+            accommodations = ServiceAccomodation.UpdateAccommodation();
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -55,12 +55,12 @@ namespace WindowsFormsApp1
             }
             ServiceAccomodation BDWORK = new ServiceAccomodation();
 
-            var accomodation = Program.BD.accommodations.FirstOrDefault(x => x.idAccommodation == int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
+            var accomodation = ServiceAccomodation.UpdateAccommodation(int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
             string text = "Вы уверены что хотите удалить запись?";
             if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 BDWORK.delete(accomodation);
-                accommodations = Program.BD.accommodations.ToList();
+                accommodations = ServiceAccomodation.UpdateAccommodation();
             }
 
 
@@ -81,7 +81,7 @@ namespace WindowsFormsApp1
                 id = id
             };
             accomodationEditForm.ShowDialog();
-            accommodations = Program.BD.accommodations.ToList();
+            accommodations = ServiceAccomodation.UpdateAccommodation();
         }
 
         private void AccomodationForm_Load(object sender, EventArgs e)

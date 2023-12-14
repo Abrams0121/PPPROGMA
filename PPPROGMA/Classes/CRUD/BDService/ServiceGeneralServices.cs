@@ -40,10 +40,10 @@ namespace PPPROGMA
 
         public bool setName(string name, General_service general_Service)
         {
-            if (name == general_Service.general_Service_name)
+            /*if (name == general_Service.general_Service_name)
             {
                 return true;
-            }
+            }*/
 
 
             int count = DB.general_services.Where(tv => tv.general_Service_name == name).Count();
@@ -67,6 +67,27 @@ namespace PPPROGMA
             }
 
             return countInRefTable == 0;
+        }
+
+        public General_service ForUpdateTour(int id)
+        {
+            return DB.general_services.SingleOrDefault(x => x.idgeneral_Service == id);
+        }
+
+        public static General_service UpdateGeneral_service(int id)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.general_services.SingleOrDefault(x => x.idgeneral_Service == id);
+            }
+        }
+
+        public static List<General_service> UpdateGeneral_service()
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.general_services.ToList();
+            }
         }
 
         public void Dispose()

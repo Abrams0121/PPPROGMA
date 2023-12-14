@@ -90,6 +90,7 @@ namespace WindowsFormsApp1
             }
             else
             {
+                service = DBWORK.ForUpdateServicet(id);
                 if (DBWORK.setName(textBox1.Text, service))
                 {
                     service.Service_name = textBox1.Text;
@@ -103,7 +104,7 @@ namespace WindowsFormsApp1
 
         private void ServiceEditForm_Load(object sender, EventArgs e)
         {
-            service = Program.BD.services.SingleOrDefault(x => x.idServices == id);
+            service = CrudService.UpdateService(id);
 
             if (changing)
             {

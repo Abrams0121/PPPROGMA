@@ -90,6 +90,7 @@ namespace WindowsFormsApp1
             }
             else
             {
+                transport = BDWORK.ForUpdateTransport(id);
                 if (BDWORK.setName(textBox1.Text, transport))
                 {
                     transport.Transport_name = textBox1.Text;
@@ -104,10 +105,13 @@ namespace WindowsFormsApp1
 
         private void TransportEditForm_Load(object sender, EventArgs e)
         {
-            transport = Program.BD.transports.SingleOrDefault(x => x.idTransport == id);
+
+            transport = ServiceTransport.UpdateTransport(id);
             comboBox1.DataSource = sprav_Transport_Types;
             comboBox1.DisplayMember = "Sprav_Transport_typecol";
             comboBox1.ValueMember = "idSprav_Transport_type";
+
+
 
             if (changing)
             {

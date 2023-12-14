@@ -17,17 +17,22 @@ namespace PPPROGMA.Classes.CRUD
             DB = new DbConnection();
         }
 
+        
+
         public static List<Sprav_transport_type> UpdateTranportType()
         {
-            using (Read read = new Read())
+            using (DbConnection DB = new DbConnection())
             {
-                return read.DB.sprav_transport_type.ToList();
+                return DB.sprav_transport_type.ToList();
             }
         }
 
-        public List<T> UpdateList<T>() where T : class
+        public static List<T> UpdateList<T>() where T : class
         {
-            return DB.Set<T>().ToList();
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.Set<T>().ToList();
+            }
         }
 
         public void Dispose()

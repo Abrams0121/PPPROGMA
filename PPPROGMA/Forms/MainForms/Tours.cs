@@ -17,8 +17,9 @@ namespace WindowsFormsApp1
         
         public ToursTableForm()
         {
+            dataGridView2.AutoGenerateColumns = false;
             InitializeComponent();
-            tourslist = Program.BD.tours.ToList();
+            tourslist = ServiceTour.UpdateTour();
             dataGridView2.DataSource = tourslist;
         }
 

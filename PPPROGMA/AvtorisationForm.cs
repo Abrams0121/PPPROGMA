@@ -1,4 +1,5 @@
-﻿using System;
+﻿using PPPROGMA.Classes.CRUD.Service;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -37,17 +38,20 @@ namespace PPPROGMA
         {
             if (!(string.IsNullOrEmpty(textBox1.Text)) && !(string.IsNullOrEmpty(textBox2.Text)))
             {
-                
-                if (Autorisation.auth(textBox1.Text, textBox2.Text)) 
+                using (ServiceAvtorisation serviceAvtorisation = new ServiceAvtorisation())
                 {
-                    MainForm mainForm = new MainForm();
-                    mainForm.Show();
-                    this.Hide();
-                }
-                else
-                {
-                    Utils.Warning("Неправильный логин или пароль");
-                }
+                    if (serviceAvtorisation.auth(textBox1.Text, textBox2.Text))
+                    {
+                        MainForm mainForm = new MainForm();
+                        mainForm.Show();
+                        this.Hide();
+                    }
+                    else
+                    {
+                        Utils.Warning("Неправильный логин или пароль");
+                    }
+                } 
+
             } else
             {
                 Utils.Warning("Введите логин и пароль");

@@ -154,6 +154,7 @@ namespace PPPROGMA
             this.Name = "SpravTransportTypeEditForm";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "TransportTypeEditForm";
+            this.Load += new System.EventHandler(this.SpravTransportTypeEditForm_Load);
             this.pnlBorder.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();

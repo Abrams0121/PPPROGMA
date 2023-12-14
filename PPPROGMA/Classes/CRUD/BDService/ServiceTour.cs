@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace PPPROGMA.Classes.CRUD.Service
+namespace PPPROGMA
 {
     internal class ServiceTour
     {
@@ -31,6 +31,27 @@ namespace PPPROGMA.Classes.CRUD.Service
         public void Update()
         {
             DB.SaveChanges();
+        }
+
+        public Tour ForUpdateTour(int id)
+        {
+            return DB.tours.SingleOrDefault(x => x.idTours == id);
+        }
+
+        public static Tour UpdateTour(int id)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.tours.SingleOrDefault(x => x.idTours == id);
+            }
+        }
+
+        public static List<Tour> UpdateTour()
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.tours.ToList();
+            }
         }
 
         public void Dispose()

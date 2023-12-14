@@ -40,10 +40,10 @@ namespace PPPROGMA
 
         public bool setName(string name, Service service)
         {
-            if (name == service.Service_name)
+            /*if (name == service.Service_name)
             {
                 return true;
-            }
+            }*/
 
 
             int count = DB.services.Where(tv => tv.Service_name == name).Count();
@@ -67,6 +67,37 @@ namespace PPPROGMA
             }
 
             return countInRefTable == 0;
+        }
+
+        
+
+        public static List<Service> SearchForSpecific(string patern)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.services.Where(x => EF.Functions.Like(x.Service_name, patern + '%')).ToList();
+            }
+        }
+
+        public Service ForUpdateServicet(int id)
+        {
+            return DB.services.SingleOrDefault(x => x.idServices == id);
+        }
+
+        public static Service UpdateService(int id)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.services.SingleOrDefault(x => x.idServices == id);
+            }
+        }
+
+        public static List<Service> UpdateService()
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.services.ToList();
+            }
         }
 
         public void Dispose()

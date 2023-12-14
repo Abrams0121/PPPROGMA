@@ -25,8 +25,10 @@ namespace WindowsFormsApp1
 
         public TransportTable()
         {
+            
             InitializeComponent();
-            transports = Program.BD.transports.Include(x => x.Sprav_Transport_type).ToList();
+            dataGridView2.AutoGenerateColumns = false;
+            transports = ServiceTransport.UpdateTransport();
             dataGridView2.DataSource = transports;
         }
 
@@ -44,7 +46,8 @@ namespace WindowsFormsApp1
         {
             TransportEditForm frm = new TransportEditForm();
             frm.ShowDialog();
-            transports = Program.BD.transports.ToList();
+            transports = ServiceTransport.UpdateTransport();
+            dataGridView2.DataSource = transports;
         }
 
         private void ReturnButton_Click(object sender, EventArgs e)
@@ -63,12 +66,13 @@ namespace WindowsFormsApp1
             ServiceTransport BDWORK = new ServiceTransport();
 
 
-            var transport = Program.BD.transports.FirstOrDefault(x => x.idTransport == int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
+            var transport = ServiceTransport.UpdateTransport(int.Parse(dataGridView2.CurrentRow.Cells["id"].Value.ToString()));
             string text = "Вы уверены что хотите удалить запись?";
             if (MessageBox.Show(text, "", MessageBoxButtons.YesNo) == DialogResult.Yes)
             {
                 BDWORK.delete(transport);
-                transports = Program.BD.transports.ToList();
+                transports = ServiceTransport.UpdateTransport();
+                dataGridView2.DataSource = transports;
             }
 
 
@@ -88,7 +92,8 @@ namespace WindowsFormsApp1
                 id = id
             };
             frm.ShowDialog();
-            transports = Program.BD.transports.ToList();
+            transports = ServiceTransport.UpdateTransport();
+            dataGridView2.DataSource = transports;
         }
 
         private void TransportTable_Load(object sender, EventArgs e)
@@ -107,14 +112,16 @@ namespace WindowsFormsApp1
                 Utils.Error("Ошибка отбора");
                 return;
             }
-            transports.Clear();
-            transports = Program.BD.transports.Where(x => x.idSprav_Transport_type == id).ToList();
+
+            transports = ServiceTransport.SearchSpecific(id);
+            dataGridView2.DataSource = transports;
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
-            transports.Clear();
-            transports = Program.BD.transports.ToList();
+
+            transports = ServiceTransport.UpdateTransport();
+            dataGridView2.DataSource = transports;
         }
     }
 }

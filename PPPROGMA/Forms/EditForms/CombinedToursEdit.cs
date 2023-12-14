@@ -85,6 +85,7 @@ namespace WindowsFormsApp1
             }
             else
             {
+                combinetion_Of_Tours = DBWORK.ForUpdateTransport(id);
                 if (DBWORK.setName(textBox1.Text, combinetion_Of_Tours))
                 {
                     combinetion_Of_Tours.combinetion_of_tours_name = textBox1.Text;
@@ -98,7 +99,7 @@ namespace WindowsFormsApp1
 
         private void CombinedToursEditForm_Load(object sender, EventArgs e)
         {
-            combinetion_Of_Tours = Program.BD.combinetion_Of_Tours.SingleOrDefault(x => x.idcombinetion_of_tours == id);
+            combinetion_Of_Tours = Service_Combination_Of_Tours.UpdateCombinetion_of_tours(id);
 
             if (changing)
             {

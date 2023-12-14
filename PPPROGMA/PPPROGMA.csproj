@@ -155,15 +155,16 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Classes\CRUD\Read.cs" />
-    <Compile Include="Classes\CRUD\Service\CrudService.cs" />
-    <Compile Include="Classes\CRUD\Service\ServiceAccomodation.cs" />
-    <Compile Include="Classes\CRUD\Service\ServiceDayTour.cs" />
-    <Compile Include="Classes\CRUD\Service\ServiceGeneralServices.cs" />
-    <Compile Include="Classes\CRUD\Service\ServiceList.cs" />
-    <Compile Include="Classes\CRUD\Service\ServiceTour.cs" />
-    <Compile Include="Classes\CRUD\Service\ServiceTransport.cs" />
-    <Compile Include="Classes\CRUD\Service\Service_Combination_Of_Tours.cs" />
-    <Compile Include="Classes\CRUD\Service\Service_sprav_transport_type.cs" />
+    <Compile Include="Classes\CRUD\BDService\CrudService.cs" />
+    <Compile Include="Classes\CRUD\BDService\ServiceAccomodation.cs" />
+    <Compile Include="Classes\CRUD\BDService\ServiceAvtorisation.cs" />
+    <Compile Include="Classes\CRUD\BDService\ServiceDayTour.cs" />
+    <Compile Include="Classes\CRUD\BDService\ServiceGeneralServices.cs" />
+    <Compile Include="Classes\CRUD\BDService\ServiceList.cs" />
+    <Compile Include="Classes\CRUD\BDService\ServiceTour.cs" />
+    <Compile Include="Classes\CRUD\BDService\ServiceTransport.cs" />
+    <Compile Include="Classes\CRUD\BDService\Service_Combination_Of_Tours.cs" />
+    <Compile Include="Classes\CRUD\BDService\Service_sprav_transport_type.cs" />
     <Compile Include="Classes\DbConnection.cs" />
     <Compile Include="Classes\Models\Accommodation.cs" />
     <Compile Include="Classes\Models\Autorisation.cs" />
