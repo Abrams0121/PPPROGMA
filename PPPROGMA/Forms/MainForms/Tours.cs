@@ -41,6 +41,7 @@ namespace WindowsFormsApp1
             {
                 changing = false
             };
+            
             tourConstructorForm.ShowDialog();
             tourslist = ServiceTour.UpdateTour();
             dataGridView2.DataSource = tourslist;
@@ -54,7 +55,7 @@ namespace WindowsFormsApp1
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             int id;
-            if (dataGridView2.RowCount > 0 || !int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            if (dataGridView2.RowCount == 0 || !int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
             {
                 Utils.Error("Невозможно удалить пустую строку");
                 return;
@@ -77,7 +78,7 @@ namespace WindowsFormsApp1
         private void ChangeButton_Click(object sender, EventArgs e)
         {
             int id;
-            if (dataGridView2.RowCount > 0 || !int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            if (dataGridView2.RowCount == 0 || !int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
             {
                 Utils.Error("Невозможно изменить пустую строку");
                 return;
@@ -85,7 +86,7 @@ namespace WindowsFormsApp1
             TourConstructorForm tourConstructorForm = new TourConstructorForm()
             {
                 changing = true,
-                id = id,
+                tourId = id,
             };
             tourConstructorForm.ShowDialog();
             tourslist = ServiceTour.UpdateTour();
@@ -95,6 +96,28 @@ namespace WindowsFormsApp1
         private void ToursTableForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            dataGridView2.DataSource = ServiceTour.FilterDate(dateTimePicker1.Value, dateTimePicker2.Value);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            tourslist = ServiceTour.UpdateTour();
+            dataGridView2.DataSource = tourslist;
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            int id;
+            if (dataGridView2.RowCount == 0 || !int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            {
+                Utils.Error("Невозможно выбрать пустую строку");
+                return;
+            }
+            DocumentsOutput.DogovorPrintToDpf(id);
         }
     }
 }

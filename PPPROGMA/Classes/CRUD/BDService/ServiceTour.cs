@@ -7,9 +7,9 @@ using System.Threading.Tasks;
 
 namespace PPPROGMA
 {
-    internal class ServiceTour
+    internal class ServiceTour : IDisposable
     {
-        DbConnection DB;
+        private DbConnection DB;
         public ServiceTour()
         {
             DB = new DbConnection();
@@ -53,6 +53,15 @@ namespace PPPROGMA
                 return DB.tours.ToList();
             }
         }
+
+        public static List<Tour> FilterDate(DateTime startDate,DateTime endDate)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.tours.Where(x => x.Tour_start_date <= startDate && x.Tour_start_date >= endDate).ToList();
+            }
+        }
+
 
         public void Dispose()
         {

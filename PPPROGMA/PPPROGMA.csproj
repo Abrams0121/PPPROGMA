@@ -103,6 +103,14 @@
     <Reference Include="Microsoft.Extensions.Primitives, Version=3.1.32.0, Culture=neutral, PublicKeyToken=adb9793829ddae60, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Extensions.Primitives.3.1.32\lib\netstandard2.0\Microsoft.Extensions.Primitives.dll</HintPath>
     </Reference>
+    <Reference Include="Microsoft.Office.Interop.Excel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Excel.15.0.4795.1001\lib\net20\Microsoft.Office.Interop.Excel.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="Microsoft.Office.Interop.Word, Version=15.0.0.0, Culture=neutral, PublicKeyToken=71e9bce111e9429c, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.Office.Interop.Word.15.0.4797.1004\lib\net20\Microsoft.Office.Interop.Word.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
     <Reference Include="MySql.Data, Version=8.0.33.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL">
       <HintPath>..\packages\MySql.Data.8.0.33\lib\net462\MySql.Data.dll</HintPath>
     </Reference>
@@ -166,6 +174,7 @@
     <Compile Include="Classes\CRUD\BDService\Service_Combination_Of_Tours.cs" />
     <Compile Include="Classes\CRUD\BDService\Service_sprav_transport_type.cs" />
     <Compile Include="Classes\DbConnection.cs" />
+    <Compile Include="Classes\DocumentsOutput.cs" />
     <Compile Include="Classes\Models\Accommodation.cs" />
     <Compile Include="Classes\Models\Autorisation.cs" />
     <Compile Include="Classes\Models\Combinetion_of_tours.cs" />
@@ -191,11 +200,23 @@
     <Compile Include="AvtorisationForm.Designer.cs">
       <DependentUpon>AvtorisationForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\AdditionalForms\FoodAddForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdditionalForms\FoodAddForm.Designer.cs">
+      <DependentUpon>FoodAddForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\AdditionalForms\SelectList.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Forms\AdditionalForms\SelectList.Designer.cs">
       <DependentUpon>SelectList.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\AdditionalForms\TextInputForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\AdditionalForms\TextInputForm.Designer.cs">
+      <DependentUpon>TextInputForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\EditForms\AccomodationEdit.cs">
       <SubType>Form</SubType>
@@ -304,8 +325,14 @@
     <EmbeddedResource Include="AvtorisationForm.resx">
       <DependentUpon>AvtorisationForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdditionalForms\FoodAddForm.resx">
+      <DependentUpon>FoodAddForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Forms\AdditionalForms\SelectList.resx">
       <DependentUpon>SelectList.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\AdditionalForms\TextInputForm.resx">
+      <DependentUpon>TextInputForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\EditForms\AccomodationEdit.resx">
       <DependentUpon>AccomodationEdit.cs</DependentUpon>

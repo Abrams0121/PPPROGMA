@@ -14,6 +14,7 @@ namespace PPPROGMA
         public int idTours {  get; set; } 
         public string Tour_Name { get; set; }
         public decimal Tour_Cost_No_Marja { get; set; }
+        public int Tourist_Count { get; set; }
 
         [DataType(DataType.Date)]
         [DisplayFormat(DataFormatString = "{0:yyyy-MM-dd}", ApplyFormatInEditMode = true)]

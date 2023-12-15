@@ -87,6 +87,9 @@ namespace WindowsFormsApp1
             this.ComToursIndex = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Column12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label10 = new System.Windows.Forms.Label();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.transportDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.serviceDataGridView)).BeginInit();
@@ -95,6 +98,7 @@ namespace WindowsFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tourDaysDataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.combinedToursDataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.SuspendLayout();
             // 
             // pnlBorder
@@ -160,7 +164,7 @@ namespace WindowsFormsApp1
             // ReturnButton
             // 
             this.ReturnButton.Font = new System.Drawing.Font("Verdana", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.ReturnButton.Location = new System.Drawing.Point(1188, 661);
+            this.ReturnButton.Location = new System.Drawing.Point(1188, 731);
             this.ReturnButton.Margin = new System.Windows.Forms.Padding(2);
             this.ReturnButton.Name = "ReturnButton";
             this.ReturnButton.Size = new System.Drawing.Size(99, 33);
@@ -171,21 +175,24 @@ namespace WindowsFormsApp1
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1090, 135);
+            this.button1.Location = new System.Drawing.Point(1092, 196);
             this.button1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(86, 23);
             this.button1.TabIndex = 7;
             this.button1.Text = "Сохранить";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // textBox1
             // 
             this.textBox1.Location = new System.Drawing.Point(1006, 60);
             this.textBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
             this.textBox1.Size = new System.Drawing.Size(274, 21);
             this.textBox1.TabIndex = 8;
+            this.textBox1.Click += new System.EventHandler(this.textBox1_Click);
             // 
             // label2
             // 
@@ -198,7 +205,7 @@ namespace WindowsFormsApp1
             // 
             // dateTimePicker1
             // 
-            this.dateTimePicker1.Location = new System.Drawing.Point(1006, 100);
+            this.dateTimePicker1.Location = new System.Drawing.Point(1006, 114);
             this.dateTimePicker1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.dateTimePicker1.Name = "dateTimePicker1";
             this.dateTimePicker1.Size = new System.Drawing.Size(274, 21);
@@ -207,12 +214,12 @@ namespace WindowsFormsApp1
             // checkBox1
             // 
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(908, 100);
+            this.checkBox1.Location = new System.Drawing.Point(908, 114);
             this.checkBox1.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(88, 17);
+            this.checkBox1.Size = new System.Drawing.Size(69, 17);
             this.checkBox1.TabIndex = 13;
-            this.checkBox1.Text = "checkBox1";
+            this.checkBox1.Text = "Сейчас";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // label1
@@ -280,6 +287,7 @@ namespace WindowsFormsApp1
             // 
             // ServiceIndex
             // 
+            this.ServiceIndex.DataPropertyName = "idServices_list";
             this.ServiceIndex.HeaderText = "Column7";
             this.ServiceIndex.Name = "ServiceIndex";
             this.ServiceIndex.ReadOnly = true;
@@ -287,12 +295,14 @@ namespace WindowsFormsApp1
             // 
             // Column7
             // 
+            this.Column7.DataPropertyName = "ServiceName";
             this.Column7.HeaderText = "Название услуги";
             this.Column7.Name = "Column7";
             this.Column7.ReadOnly = true;
             // 
             // Column8
             // 
+            this.Column8.DataPropertyName = "ServicePrice";
             this.Column8.HeaderText = "Цена услуги";
             this.Column8.Name = "Column8";
             this.Column8.ReadOnly = true;
@@ -315,6 +325,7 @@ namespace WindowsFormsApp1
             // 
             // GeneralServiceIndex
             // 
+            this.GeneralServiceIndex.DataPropertyName = "idgeneral_service_list";
             this.GeneralServiceIndex.HeaderText = "Column9";
             this.GeneralServiceIndex.Name = "GeneralServiceIndex";
             this.GeneralServiceIndex.ReadOnly = true;
@@ -322,12 +333,14 @@ namespace WindowsFormsApp1
             // 
             // Column9
             // 
+            this.Column9.DataPropertyName = "GeneralSerName";
             this.Column9.HeaderText = "Название общей услуги";
             this.Column9.Name = "Column9";
             this.Column9.ReadOnly = true;
             // 
             // Column10
             // 
+            this.Column10.DataPropertyName = "GeneralSerCost";
             this.Column10.HeaderText = "Цена общей услуги";
             this.Column10.Name = "Column10";
             this.Column10.ReadOnly = true;
@@ -345,11 +358,12 @@ namespace WindowsFormsApp1
             this.accomodationDataGridView.Margin = new System.Windows.Forms.Padding(3, 2, 3, 2);
             this.accomodationDataGridView.Name = "accomodationDataGridView";
             this.accomodationDataGridView.ReadOnly = true;
-            this.accomodationDataGridView.Size = new System.Drawing.Size(444, 88);
+            this.accomodationDataGridView.Size = new System.Drawing.Size(444, 121);
             this.accomodationDataGridView.TabIndex = 19;
             // 
             // AccomodationIndex
             // 
+            this.AccomodationIndex.DataPropertyName = "idTour_days";
             this.AccomodationIndex.HeaderText = "Column3";
             this.AccomodationIndex.Name = "AccomodationIndex";
             this.AccomodationIndex.ReadOnly = true;
@@ -357,6 +371,7 @@ namespace WindowsFormsApp1
             // 
             // Column3
             // 
+            this.Column3.DataPropertyName = "accommodationName";
             this.Column3.HeaderText = "Название отеля";
             this.Column3.Name = "Column3";
             this.Column3.ReadOnly = true;
@@ -364,6 +379,7 @@ namespace WindowsFormsApp1
             // 
             // Column4
             // 
+            this.Column4.DataPropertyName = "accommodationPrice";
             this.Column4.HeaderText = "Цена за одну ночь на человека";
             this.Column4.Name = "Column4";
             this.Column4.ReadOnly = true;
@@ -408,6 +424,7 @@ namespace WindowsFormsApp1
             this.button2.TabIndex = 21;
             this.button2.Text = "Добавить";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -418,6 +435,7 @@ namespace WindowsFormsApp1
             this.button3.TabIndex = 22;
             this.button3.Text = "Удалить";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -428,6 +446,7 @@ namespace WindowsFormsApp1
             this.button4.TabIndex = 23;
             this.button4.Text = "Добавить";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -438,6 +457,7 @@ namespace WindowsFormsApp1
             this.button5.TabIndex = 24;
             this.button5.Text = "Удалить";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 
@@ -448,6 +468,7 @@ namespace WindowsFormsApp1
             this.button6.TabIndex = 25;
             this.button6.Text = "Добавить";
             this.button6.UseVisualStyleBackColor = true;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
             // button7
             // 
@@ -458,6 +479,7 @@ namespace WindowsFormsApp1
             this.button7.TabIndex = 26;
             this.button7.Text = "Удалить";
             this.button7.UseVisualStyleBackColor = true;
+            this.button7.Click += new System.EventHandler(this.button7_Click);
             // 
             // button8
             // 
@@ -468,6 +490,7 @@ namespace WindowsFormsApp1
             this.button8.TabIndex = 27;
             this.button8.Text = "Добавить";
             this.button8.UseVisualStyleBackColor = true;
+            this.button8.Click += new System.EventHandler(this.button8_Click);
             // 
             // button9
             // 
@@ -478,6 +501,7 @@ namespace WindowsFormsApp1
             this.button9.TabIndex = 28;
             this.button9.Text = "Удалить";
             this.button9.UseVisualStyleBackColor = true;
+            this.button9.Click += new System.EventHandler(this.button9_Click);
             // 
             // button10
             // 
@@ -488,6 +512,7 @@ namespace WindowsFormsApp1
             this.button10.TabIndex = 29;
             this.button10.Text = "Добавить";
             this.button10.UseVisualStyleBackColor = true;
+            this.button10.Click += new System.EventHandler(this.button10_Click);
             // 
             // button11
             // 
@@ -498,6 +523,7 @@ namespace WindowsFormsApp1
             this.button11.TabIndex = 30;
             this.button11.Text = "Удалить";
             this.button11.UseVisualStyleBackColor = true;
+            this.button11.Click += new System.EventHandler(this.button11_Click);
             // 
             // tourDaysDataGridView
             // 
@@ -513,6 +539,8 @@ namespace WindowsFormsApp1
             this.tourDaysDataGridView.ReadOnly = true;
             this.tourDaysDataGridView.Size = new System.Drawing.Size(148, 82);
             this.tourDaysDataGridView.TabIndex = 31;
+            this.tourDaysDataGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.tourDaysDataGridView_CellContentClick);
+            this.tourDaysDataGridView.Click += new System.EventHandler(this.tourDaysDataGridView_Click);
             // 
             // Index
             // 
@@ -549,6 +577,7 @@ namespace WindowsFormsApp1
             this.button13.TabIndex = 33;
             this.button13.Text = "Удалить";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // label3
             // 
@@ -580,7 +609,7 @@ namespace WindowsFormsApp1
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(457, 353);
+            this.label6.Location = new System.Drawing.Point(414, 353);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(47, 13);
             this.label6.TabIndex = 37;
@@ -613,6 +642,7 @@ namespace WindowsFormsApp1
             this.button14.TabIndex = 41;
             this.button14.Text = "Удалить";
             this.button14.UseVisualStyleBackColor = true;
+            this.button14.Click += new System.EventHandler(this.button14_Click);
             // 
             // button15
             // 
@@ -623,6 +653,7 @@ namespace WindowsFormsApp1
             this.button15.TabIndex = 40;
             this.button15.Text = "Добавить";
             this.button15.UseVisualStyleBackColor = true;
+            this.button15.Click += new System.EventHandler(this.button15_Click);
             // 
             // combinedToursDataGridView
             // 
@@ -642,6 +673,7 @@ namespace WindowsFormsApp1
             // 
             // ComToursIndex
             // 
+            this.ComToursIndex.DataPropertyName = "idcombinetion_of_tours_list";
             this.ComToursIndex.HeaderText = "Column11";
             this.ComToursIndex.Name = "ComToursIndex";
             this.ComToursIndex.ReadOnly = true;
@@ -649,22 +681,52 @@ namespace WindowsFormsApp1
             // 
             // Column11
             // 
+            this.Column11.DataPropertyName = "combinetionOfToursName";
             this.Column11.HeaderText = "Название сборного тура";
             this.Column11.Name = "Column11";
             this.Column11.ReadOnly = true;
             // 
             // Column12
             // 
+            this.Column12.DataPropertyName = "combinetionOfToursPrice";
             this.Column12.HeaderText = "Цена";
             this.Column12.Name = "Column12";
             this.Column12.ReadOnly = true;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(1006, 170);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(274, 21);
+            this.numericUpDown1.TabIndex = 43;
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(1003, 92);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(156, 13);
+            this.label9.TabIndex = 44;
+            this.label9.Text = "Дата старта проката тура";
+            // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(1003, 148);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(137, 13);
+            this.label10.TabIndex = 45;
+            this.label10.Text = "Колличество туристов";
             // 
             // TourConstructorForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.Control;
-            this.ClientSize = new System.Drawing.Size(1298, 705);
+            this.ClientSize = new System.Drawing.Size(1298, 775);
+            this.Controls.Add(this.label10);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.numericUpDown1);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.button14);
             this.Controls.Add(this.button15);
@@ -716,6 +778,7 @@ namespace WindowsFormsApp1
             ((System.ComponentModel.ISupportInitialize)(this.foodDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tourDaysDataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.combinedToursDataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -762,18 +825,6 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Button button15;
         private System.Windows.Forms.DataGridView combinedToursDataGridView;
-        private System.Windows.Forms.DataGridViewTextBoxColumn AccomodationIndex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceIndex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn GeneralServiceIndex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ComToursIndex;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
         private System.Windows.Forms.DataGridViewTextBoxColumn Index;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn FoodIndex;
@@ -781,6 +832,21 @@ namespace WindowsFormsApp1
         private System.Windows.Forms.DataGridViewTextBoxColumn TransportIndex;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ComToursIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column11;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn GeneralServiceIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ServiceIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn AccomodationIndex;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
+        private System.Windows.Forms.NumericUpDown numericUpDown1;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label10;
     }
 }
 

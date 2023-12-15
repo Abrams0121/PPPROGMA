@@ -13,6 +13,7 @@ namespace PPPROGMA.Classes.Models
         [Key]
         public int idTour_days { get; set; }
         public int Day_number { get; set; }
+        [Column("idTours")]
         public int idTour { get; set; }
         public Tour tour { get; set; }
         public int idAccommodation { get; set; }

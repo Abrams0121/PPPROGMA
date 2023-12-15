@@ -20,13 +20,16 @@ namespace WindowsFormsApp1
         public T table { get; set; } 
 
         public int id { get; set; }
-            
+
+        public bool changed = false;
+
+        public int count;
         List<T> list { get; set; }
 
         public SelectListForm()
         {
             InitializeComponent();
-            
+            dataGridView1.AutoGenerateColumns = false;
         }
 
         private void btnMinimize_Click(object sender, EventArgs e)
@@ -48,6 +51,8 @@ namespace WindowsFormsApp1
                 return;
             }
             id = res;
+            count = Convert.ToInt32(numericUpDown1.Value);
+            changed = true;
             Close();
         }
 
@@ -78,41 +83,46 @@ namespace WindowsFormsApp1
 
         private void Constructor()
         {
+            numericUpDown1.Visible = false;
+            label2.Visible = false;
             using (Read listView = new Read())
             {
 
 
-                switch (table.GetType().Name)
+                switch (typeof(T).Name)
                 {
                     case "Transport":
                         ListHolder lists = new ListHolder();
                         dataGridView1.Columns["ID"].DataPropertyName = "idTransport";
                         dataGridView1.Columns["ColName"].DataPropertyName = "Transport_name";
-                        dataGridView1.Columns["Perice"].DataPropertyName = "Transport_price";
+                        dataGridView1.Columns["Price"].DataPropertyName = "Transport_price";
                         dataGridView1.DataSource = Read.UpdateList<Transport>();
                         break;
                     case "Service":
                         dataGridView1.Columns["ID"].DataPropertyName = "idServices";
                         dataGridView1.Columns["ColName"].DataPropertyName = "Service_name";
-                        dataGridView1.Columns["Perice"].DataPropertyName = "Service_cost";
+                        dataGridView1.Columns["Price"].DataPropertyName = "Service_cost";
                         dataGridView1.DataSource = Read.UpdateList<Service>();
                         break;
                     case "General_service":
                         dataGridView1.Columns["ID"].DataPropertyName = "idgeneral_Service";
                         dataGridView1.Columns["ColName"].DataPropertyName = "general_Service_name";
-                        dataGridView1.Columns["Perice"].DataPropertyName = "general_Service_price";
+                        dataGridView1.Columns["Price"].DataPropertyName = "general_Service_price";
                         dataGridView1.DataSource = Read.UpdateList<General_service>();
+                        numericUpDown1.Visible = true;
+                        label2.Visible = true;
                         break;
                     case "Combinetion_of_tours":
                         dataGridView1.Columns["ID"].DataPropertyName = "idcombinetion_of_tours";
                         dataGridView1.Columns["ColName"].DataPropertyName = "combinetion_of_tours_name";
-                        dataGridView1.Columns["Perice"].DataPropertyName = "combinetion_of_tours_price";
+                        dataGridView1.Columns["Price"].DataPropertyName = "combinetion_of_tours_price";
                         dataGridView1.DataSource = Read.UpdateList<Combinetion_of_tours>();
+                        
                         break;
                     case "Accommodation":
                         dataGridView1.Columns["ID"].DataPropertyName = "idAccommodation";
                         dataGridView1.Columns["ColName"].DataPropertyName = "Accommodation_name";
-                        dataGridView1.Columns["Perice"].DataPropertyName = "Price_for_one_person";
+                        dataGridView1.Columns["Price"].DataPropertyName = "Price_for_one_person";
                         dataGridView1.DataSource = Read.UpdateList<Accommodation>();
                         break;
                     default:

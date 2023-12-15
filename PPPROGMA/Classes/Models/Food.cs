@@ -12,7 +12,6 @@ namespace PPPROGMA.Classes.Models
         [Key]
         public int idFood { get; set; }
         public decimal Food_price { get; set; }
-        public ICollection<Food_list> Food_list { get; set; }
 
     }
 }

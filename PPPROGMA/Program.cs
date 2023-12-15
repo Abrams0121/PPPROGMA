@@ -11,6 +11,8 @@ namespace PPPROGMA
     internal static class Program
     {
 
+        public static Autorisation User;
+
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

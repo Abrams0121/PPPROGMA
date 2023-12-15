@@ -25,7 +25,7 @@ namespace PPPROGMA.Classes.CRUD.Service
             {
                 return false;
             }
-
+            Program.User = user;
             return true;
 
         }

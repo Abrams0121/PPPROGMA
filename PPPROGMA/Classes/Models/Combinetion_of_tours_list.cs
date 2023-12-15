@@ -8,6 +8,7 @@ using System.Threading.Tasks;
 
 namespace PPPROGMA.Classes.Models
 {
+    [Table("combinetion_of_tours_list")]
     internal class Combinetion_of_tours_list
     {
         [Key]

@@ -75,7 +75,7 @@ namespace PPPROGMA
         {
             using (DbConnection DB = new DbConnection())
             {
-                return DB.services.Where(x => EF.Functions.Like(x.Service_name, patern + '%')).ToList();
+                return DB.services.Where(x => EF.Functions.Like(x.Service_name, '%' + patern + '%')).ToList();
             }
         }
 
