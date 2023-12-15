@@ -100,7 +100,7 @@ namespace WindowsFormsApp1
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dataGridView2.DataSource = ServiceTour.FilterDate(dateTimePicker1.Value, dateTimePicker2.Value);
+            dataGridView2.DataSource = ServiceTour.FilterDate(dateTimePicker2.Value, dateTimePicker1.Value);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -118,6 +118,23 @@ namespace WindowsFormsApp1
                 return;
             }
             DocumentsOutput.DogovorPrintToDpf(id);
+        }
+
+        private void button4_Click(object sender, EventArgs e)
+        {
+            List<Tour> tours = ServiceTour.FilterDate(dateTimePicker3.Value, dateTimePicker4.Value);
+            string FileName = "Polar Experts Report";
+            string DocName = $"Отчет по турам проведенным в промежутке между" +
+                $" {dateTimePicker3.Value.ToShortDateString()} и {dateTimePicker4.Value.ToShortDateString()}";
+            DocumentsOutput.ExcelDocOutputDates(tours, FileName, DocName, DateTime.Now.ToShortDateString());
+        }
+
+        private void button5_Click(object sender, EventArgs e)
+        {
+            List<Tour> tours = ServiceTour.FilterPrice(Utils.StringToDecimal(maskedTextBox1.Text));
+            string FileName = "Polar Experts Report 2";
+            string DocName = $"Отчет по турам цена которых дороже чем: {maskedTextBox1.Text}";
+            DocumentsOutput.ExcelDocOutputPrice(tours, FileName, DocName, DateTime.Now.ToShortDateString());
         }
     }
 }

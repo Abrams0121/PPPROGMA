@@ -36,9 +36,18 @@ namespace PPPROGMA.Classes.CRUD.Service
 
         public static int Max(int idTour)
         {
-            using (DbConnection DB = new DbConnection())
+            try
             {
-                return DB.tour_Days.Where(x => x.idTour == idTour).Max(x => x.Day_number);
+                using (DbConnection DB = new DbConnection())
+                {
+                    return DB.tour_Days.Where(x => x.idTour == idTour).Max(x => x.Day_number);
+                }
+            }
+            catch (Exception)
+            {
+                
+                Utils.Error("Ошибка отбора максимального числа");
+                return 0;
             }
         }
 

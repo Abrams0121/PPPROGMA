@@ -129,6 +129,11 @@ namespace WindowsFormsApp1
             {
                 DBWORk.Insert(tour_Days);
             }
+            using (ServiceList DBWORk = new ServiceList())
+            {
+                days_list = DBWORk.UpdateDaysListWithTour(tour.idTours);
+            }
+            tourDaysDataGridView.DataSource = days_list;
             UpdateAllTables();
         }
 
@@ -427,10 +432,18 @@ namespace WindowsFormsApp1
             }
             using (ServiceTour DBWORk = new ServiceTour())
             {
+                decimal cost_marja = 0;
+                decimal cost_per_one = 0;
+                decimal profit = 0;
                 Tour tour = DBWORk.ForUpdateTour(tourId);
                 tour.Tour_Name = textBox1.Text;
                 tour.Tour_start_date = startDate;
                 tour.Tourist_Count = Convert.ToInt32(numericUpDown1.Value);
+                tour.Tour_Cost_No_Marja = Utils.CalcBase(tourId, tour.Tourist_Count, out cost_marja,
+                    out cost_per_one, out profit);
+                tour.Tour_Cost_marja = cost_marja;
+                tour.Tour_cost_For_one_person = cost_per_one;
+                tour.Tour_Profit = profit;
                 DBWORk.Update();
             }
             Close();

@@ -42,7 +42,7 @@ namespace WindowsFormsApp1
                 app.Visible = false;
 
                 string path = Directory.GetCurrentDirectory();
-                var doc = app.Documents.Open(path + @"\TourDay.docx");
+                var doc = app.Documents.Open(path + @"\TourList.docx");
 
                 List<Tour_days> days = new List<Tour_days>();
                 List<Tour_days> daysWithTour = new List<Tour_days>();
@@ -65,101 +65,59 @@ namespace WindowsFormsApp1
                 doc.Activate();
                 //Target table, to be extended
 
+                DateTime date = Convert.ToDateTime(tour.Tour_start_date);
+
                 doc.Bookmarks["TourName"].Range.Text = tour.Tour_Name;
-                doc.Bookmarks["TourDate"].Range.Text = tour.Tour_start_date.ToString();
+                doc.Bookmarks["TourDate"].Range.Text = date.ToShortDateString() ;
                 doc.Bookmarks["FormerFIO"].Range.Text = Program.User.User_FIO;
+
+                
 
                 int i = 1;
                 foreach (var day in days)
                 {
+                    string str = string.Empty;
                     services_list = ServiceList.UpdateServices_list(day.idTour_days);
                     
                     foreach (var item in services_list)
                     {
-                        doc.Tables[1].Rows.Add(doc.Tables[1].Rows[i]);
-                       
-                        word.Cell cell2 = doc.Tables[1].Cell(i + 1, 2);
-                        word.Cell cell = doc.Tables[1].Cell(i, 1);
-                        cell.Range.Text = day.dayName;
-                        cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        cell2.Range.Text = item.ServiceName;
-                        cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        i++;
+                        str += item.ServiceName + "\n";
+
                     }
+
+                    doc.Tables[1].Rows.Add(doc.Tables[1].Rows[i]);
+                    word.Cell cell = doc.Tables[1].Cell(i, 1);
+                    word.Cell cell2 = doc.Tables[1].Cell(i, 2);
                     
+                    cell.Range.Text = day.dayName;
+                    cell2.Range.Text = str;
+                    cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    i++;
                 }
+
+
+
 
                 i = 1;
                 foreach (var day in days)
                 {
+                    string str = string.Empty;
                     general_service_list = ServiceList.UpdateGeneral_service_List(day.idTour_days);
 
                     foreach (var item in general_service_list)
                     {
-                        doc.Tables[2].Rows.Add(doc.Tables[2].Rows[i]);
-                        word.Cell cell = doc.Tables[2].Cell(i, 1);
-                        word.Cell cell2 = doc.Tables[2].Cell(i + 1, 2);
-                        cell.Range.Text = day.dayName;
-                        cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        cell2.Range.Text = item.GeneralSerName;
-                        cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        i++;
+                        str += item.GeneralSerName + "\n";
+
                     }
 
-                }
+                    doc.Tables[2].Rows.Add(doc.Tables[2].Rows[i]);
+                    word.Cell cell = doc.Tables[2].Cell(i, 1);
+                    word.Cell cell2 = doc.Tables[2].Cell(i, 2);
 
-                i = 1;
-                foreach (var day in days)
-                {
-                    combinetion_of_tours_list = ServiceList.UpdateCombinetion_of_tours_List(day.idTour_days);
-
-                    foreach (var item in combinetion_of_tours_list)
-                    {
-                        doc.Tables[3].Rows.Add(doc.Tables[3].Rows[i]);
-                        word.Cell cell = doc.Tables[3].Cell(i, 1);
-                        word.Cell cell2 = doc.Tables[3].Cell(i + 1, 2);
-                        cell.Range.Text = day.dayName;
-                        cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        cell2.Range.Text = item.combinetionOfToursName;
-                        cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        i++;
-                    }
-
-                }
-
-
-                i = 1;
-                foreach (var day in days)
-                {
-                    food_list = ServiceList.Updatefood_Lists(day.idTour_days);
-
-                    foreach (var item in food_list)
-                    {
-                        doc.Tables[4].Rows.Add(doc.Tables[4].Rows[i]);
-                        word.Cell cell = doc.Tables[4].Cell(i, 1);
-                        word.Cell cell2 = doc.Tables[4].Cell(i + 1, 2);
-                        cell.Range.Text = day.dayName;
-                        cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        cell2.Range.Text = item.Food_price.ToString();
-                        cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        i++;
-                    }
-
-                }
-
-
-                i = 1;
-                foreach (var day in daysWithTour)
-                {
-                    doc.Tables[5].Rows.Add(doc.Tables[5].Rows[i]);
-                    doc.Tables[6].Rows.Add(doc.Tables[6].Rows[i]);
-                    word.Cell cell = doc.Tables[5].Cell(i, 1);
-                    word.Cell cell2 = doc.Tables[5].Cell(i + 1, 2);
                     cell.Range.Text = day.dayName;
+                    cell2.Range.Text = str;
                     cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-
-
-                    cell2.Range.Text = day.accommodationName;
                     cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
                     i++;
                 }
@@ -167,19 +125,90 @@ namespace WindowsFormsApp1
                 i = 1;
                 foreach (var day in days)
                 {
+                    string str = string.Empty;
+                    combinetion_of_tours_list = ServiceList.UpdateCombinetion_of_tours_List(day.idTour_days);
+
+                    foreach (var item in combinetion_of_tours_list)
+                    {
+                        str += item.combinetionOfToursName + "\n";
+
+                    }
+
+                    doc.Tables[3].Rows.Add(doc.Tables[3].Rows[i]);
+                    word.Cell cell = doc.Tables[3].Cell(i, 1);
+                    word.Cell cell2 = doc.Tables[3].Cell(i, 2);
+
+                    cell.Range.Text = day.dayName;
+                    cell2.Range.Text = str;
+                    cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    i++;
+
+                }
+
+
+                i = 1;
+                foreach (var day in days)
+                {
+                    string str = string.Empty;
                     transport_list = ServiceList.UpdateTransport_list(day.idTour_days);
 
                     foreach (var item in transport_list)
                     {
-                        doc.Tables[6].Rows.Add(doc.Tables[6].Rows[i]);
-                        word.Cell cell = doc.Tables[6].Cell(i, 1);
-                        word.Cell cell2 = doc.Tables[6].Cell(i + 1, 2);
-                        cell.Range.Text = day.dayName;
-                        cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        cell2.Range.Text = item.transportName;
-                        cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
-                        i++;
+                        str += item.transportName + "\n";
+
                     }
+
+                    doc.Tables[6].Rows.Add(doc.Tables[6].Rows[i]);
+                    word.Cell cell = doc.Tables[6].Cell(i, 1);
+                    word.Cell cell2 = doc.Tables[6].Cell(i, 2);
+
+                    cell.Range.Text = day.dayName;
+                    cell2.Range.Text = str;
+                    cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    i++;
+
+                }
+
+
+                i = 1;
+                foreach (var day in daysWithTour)
+                {
+                    string str = string.Empty;
+                    food_list = ServiceList.Updatefood_Lists(day.idTour_days);
+
+                    foreach (var item in food_list)
+                    {
+                        str += item.Food_price + "\n";
+
+                    }
+
+                    doc.Tables[5].Rows.Add(doc.Tables[5].Rows[i]);
+                    word.Cell cell = doc.Tables[5].Cell(i, 1);
+                    word.Cell cell2 = doc.Tables[5].Cell(i, 2);
+
+                    cell.Range.Text = day.dayName;
+                    cell2.Range.Text = str;
+                    cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    i++;
+                }
+
+                i = 1;
+                foreach (var day in days)
+                {
+                    services_list = ServiceList.UpdateServices_list(day.idTour_days);
+
+                    doc.Tables[4].Rows.Add(doc.Tables[4].Rows[i]);
+                    word.Cell cell = doc.Tables[4].Cell(i, 1);
+                    word.Cell cell2 = doc.Tables[4].Cell(i, 2);
+
+                    cell.Range.Text = day.dayName;
+                    cell2.Range.Text = day.accommodationName;
+                    cell.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    cell2.Range.ParagraphFormat.Alignment = word.WdParagraphAlignment.wdAlignParagraphRight;
+                    i++;
 
                 }
 
@@ -209,7 +238,7 @@ namespace WindowsFormsApp1
         }
 
 
-        /*static public void ExcelDocOutputDates(ref System.Data.DataTable dt, string File_name, string DocName,string Date)
+        static public void ExcelDocOutputDates(List<Tour> tourList, string File_name, string DocName,string Date)
         {
             Excel.Application xlApp;
             //Лист
@@ -231,10 +260,10 @@ namespace WindowsFormsApp1
                 Excel.Range _excelCells1 = (Excel.Range)xlSheet.get_Range("A1", "A3").Cells;
                 // Производим объединение
                 _excelCells1.Merge(Type.Missing);
-                xlSheet.Cells[1, 3] = @"Автосалон" + "\r\n" + "'Акатон'";
+                xlSheet.Cells[1, 3] = @"ТурАгентсво" + "\r\n" + "'Polar Experts'";
 
                 Excel.Range excelCells = xlSheet.Range[xlSheet.Cells[1, 1], xlSheet.Cells[1, 1]];
-                xlSheet.Cells[1, 1] = @"Автосалон" + "\r\n" + "'Акатон'";
+                xlSheet.Cells[1, 1] = @"ТурАгентсво" + "\r\n" + "'Polar Experts'";
 
                 Excel.Range excelCells5 = xlSheet.Range[xlSheet.Cells[1, 5], xlSheet.Cells[1, 5]];
                 xlSheet.Cells[1, 5] = DocName;
@@ -252,13 +281,11 @@ namespace WindowsFormsApp1
                 xlSheet.Cells[2, 2] = @"Документ сформирован: ";
 
                 Excel.Range excelCells4 = xlSheet.Range[xlSheet.Cells[2, 3], xlSheet.Cells[2, 3]];
-                xlSheet.Cells[2, 3] = Avtorisation.UserName;
+                xlSheet.Cells[2, 3] = Program.User.User_FIO;
 
                 Excel.Range excelCells7 = xlSheet.Range[xlSheet.Cells[2, 4], xlSheet.Cells[2, 4]];
                 Excel.Range excelCells8 = xlSheet.Range[xlSheet.Cells[2, 5], xlSheet.Cells[2, 5]];
 
-                xlSheet.Cells[2, 4] = @"Список автомобилей : ";
-                xlSheet.Cells[2, 5] = Date;
 
 
                 xlSheet.Cells.get_Range("A5", "Z5").ColumnWidth = 50;
@@ -312,14 +339,18 @@ namespace WindowsFormsApp1
                 excelCells8.Font.Color = ColorTranslator.ToOle(Color.MidnightBlue);
 
 
+                List<string> col_name = new List<string>() {"Название тура","Дата проведения","Колличество туристов"
+                    ,"Стоимость без маржи","Стоимость с маржей","Стоимость для одного туриста","Профит с тура" };
+
+
 
                 int collInd = 0;
                 int rowInd;
                 string data = "";
 
-                for (int i = 0; i < dt.Columns.Count; i++)
+                for (int i = 0; i < col_name.Count; i++)
                 {
-                    data = dt.Columns[i].ColumnName.ToString();
+                    data = col_name[i];
                     xlSheet.Cells[5, i + 1] = data;
 
                     xlSheetRange = xlSheet.get_Range("A5:Z5", Type.Missing);
@@ -330,14 +361,24 @@ namespace WindowsFormsApp1
                     xlSheetRange.Font.Bold = true;
                 }
 
-                for (rowInd = 0; rowInd < dt.Rows.Count; rowInd++)
+                int row = 0;
+                int col = 0;
+                foreach (var item in tourList)
                 {
-                    for (collInd = 0; collInd < dt.Columns.Count; collInd++)
-                    {
-                        data = dt.Rows[rowInd].ItemArray[collInd].ToString();
-                        xlSheet.Cells[rowInd + 6, collInd + 1] = data;
-                    }
+                    row++;
+                    DateTime date = Convert.ToDateTime(item.Tour_start_date);
+                    xlSheet.Cells[row + 6, 1] = item.Tour_Name;
+                    xlSheet.Cells[row + 6, 2] = date.ToShortDateString();
+                    xlSheet.Cells[row + 6, 3] = item.Tourist_Count;
+                    xlSheet.Cells[row + 6, 4] = item.Tour_Cost_No_Marja;
+                    xlSheet.Cells[row + 6, 5] = item.Tour_Cost_marja;
+                    xlSheet.Cells[row + 6, 6] = item.Tour_cost_For_one_person;
+                    xlSheet.Cells[row + 6, 7] = item.Tour_Profit;
                 }
+
+                xlSheet.Cells[row + 7, 4] = @"Подпись: ";
+                xlSheet.Cells[row + 7, 5] = "__________________";
+
                 xlSheetRange = xlSheet.UsedRange;
 
                 xlSheetRange.Columns.AutoFit();
@@ -363,9 +404,9 @@ namespace WindowsFormsApp1
                     p2.Kill();
                 }
             }
-        }*/
+        }
 
-        /*static public void ExcelDocOutputMenedj(ref System.Data.DataTable dt,string File_name, string DocName, string Menedjer)
+        static public void ExcelDocOutputPrice(List<Tour> tourList, string File_name, string DocName, string Menedjer)
         {
             Excel.Application xlApp;
             //Лист
@@ -387,10 +428,10 @@ namespace WindowsFormsApp1
                 Excel.Range _excelCells1 = (Excel.Range)xlSheet.get_Range("A1", "A3").Cells;
                 // Производим объединение
                 _excelCells1.Merge(Type.Missing);
-                xlSheet.Cells[1, 3] = @"Автосалон" + "\r\n" + "'Акатон'";
+                xlSheet.Cells[1, 3] = @"ТурАгентсво" + "\r\n" + "'Polar Experts'";
 
                 Excel.Range excelCells = xlSheet.Range[xlSheet.Cells[1, 1], xlSheet.Cells[1, 1]];
-                xlSheet.Cells[1, 1] = @"Автосалон" + "\r\n" + "'Акатон'";
+                xlSheet.Cells[1, 1] = @"ТурАгентсво" + "\r\n" + "'Polar Experts'";
 
                 Excel.Range excelCells5 = xlSheet.Range[xlSheet.Cells[1, 5], xlSheet.Cells[1, 5]];
                 xlSheet.Cells[1, 5] = DocName;
@@ -408,13 +449,12 @@ namespace WindowsFormsApp1
                 xlSheet.Cells[2, 2] = @"Документ сформирован: ";
 
                 Excel.Range excelCells4 = xlSheet.Range[xlSheet.Cells[2, 3], xlSheet.Cells[2, 3]];
-                xlSheet.Cells[2, 3] = Avtorisation.UserName;
+                xlSheet.Cells[2, 3] = Program.User.User_FIO;
 
                 Excel.Range excelCells7 = xlSheet.Range[xlSheet.Cells[2, 4], xlSheet.Cells[2, 4]];
                 Excel.Range excelCells8 = xlSheet.Range[xlSheet.Cells[2, 5], xlSheet.Cells[2, 5]];
 
-                xlSheet.Cells[2, 4] = @"Список договоров менеджера : ";
-                xlSheet.Cells[2, 5] = Menedjer;
+               
 
                 xlSheet.Cells.get_Range("A5", "Z5").ColumnWidth = 50;
 
@@ -468,13 +508,18 @@ namespace WindowsFormsApp1
                 //GetGroup();
 
 
+                List<string> col_name = new List<string>() {"Название тура","Дата проведения","Колличество туристов"
+                    ,"Стоимость без маржи","Стоимость с маржей","Стоимость для одного туриста","Профит с тура" };
+
+
+
                 int collInd = 0;
                 int rowInd;
                 string data = "";
 
-                for (int i = 0; i < dt.Columns.Count; i++)
+                for (int i = 0; i < col_name.Count; i++)
                 {
-                    data = dt.Columns[i].ColumnName.ToString();
+                    data = col_name[i];
                     xlSheet.Cells[5, i + 1] = data;
 
                     xlSheetRange = xlSheet.get_Range("A5:Z5", Type.Missing);
@@ -485,14 +530,23 @@ namespace WindowsFormsApp1
                     xlSheetRange.Font.Bold = true;
                 }
 
-                for (rowInd = 0; rowInd < dt.Rows.Count; rowInd++)
+                int row = 0;
+                int col = 0;
+                foreach (var item in tourList)
                 {
-                    for (collInd = 0; collInd < dt.Columns.Count; collInd++)
-                    {
-                        data = dt.Rows[rowInd].ItemArray[collInd].ToString();
-                        xlSheet.Cells[rowInd + 6, collInd + 1] = data;
-                    }
+                    row++;
+                    DateTime date = Convert.ToDateTime(item.Tour_start_date);
+                    xlSheet.Cells[row + 6, 1] = item.Tour_Name;
+                    xlSheet.Cells[row + 6, 2] = date.ToShortDateString();
+                    xlSheet.Cells[row + 6, 3] = item.Tourist_Count;
+                    xlSheet.Cells[row + 6, 4] = item.Tour_Cost_No_Marja;
+                    xlSheet.Cells[row + 6, 5] = item.Tour_Cost_marja;
+                    xlSheet.Cells[row + 6, 6] = item.Tour_cost_For_one_person;
+                    xlSheet.Cells[row + 6, 7] = item.Tour_Profit;
                 }
+
+                xlSheet.Cells[row + 7, 4] = @"Подпись: ";
+                xlSheet.Cells[row + 7, 5] = "__________________";
                 xlSheetRange = xlSheet.UsedRange;
 
                 xlSheetRange.Columns.AutoFit();
@@ -518,7 +572,7 @@ namespace WindowsFormsApp1
                     p2.Kill();
                 }
             }
-        }*/
+        }
 
 
 

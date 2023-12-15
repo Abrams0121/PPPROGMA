@@ -62,6 +62,13 @@ namespace PPPROGMA
             }
         }
 
+        public static List<Tour> FilterPrice(Decimal price)
+        {
+            using (DbConnection DB = new DbConnection())
+            {
+                return DB.tours.Where(x => x.Tour_Cost_marja > price).ToList();
+            }
+        }
 
         public void Dispose()
         {
