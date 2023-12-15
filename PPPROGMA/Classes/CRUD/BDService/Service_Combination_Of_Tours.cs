@@ -59,7 +59,7 @@ namespace PPPROGMA.Classes.CRUD.Service
 
         public bool allowDel(Combinetion_of_tours combinetion_Of_Tours)
         {
-            int countInRefTable = DB.combinetion_Of_Tours_Lists.Include(v => v.idCombinetion_Of_Tours).Where(v => v.combinetion_Of_Tours == combinetion_Of_Tours).Count();
+            int countInRefTable = DB.combinetion_Of_Tours_Lists.Include(v => v.combinetion_Of_Tours).Where(v => v.combinetion_Of_Tours == combinetion_Of_Tours).Count();
 
             if (countInRefTable > 0)
             {

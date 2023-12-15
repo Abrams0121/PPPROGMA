@@ -60,7 +60,7 @@ namespace PPPROGMA.Classes.CRUD.Service
 
         public bool allowDel(Transport transport)
         {
-            int countInRefTable = DB.transport_list.Include(v => v.idTransport).Where(v => v.Transport == transport).Count();
+            int countInRefTable = DB.transport_list.Include(v => v.Transport).Where(v => v.Transport == transport).Count();
 
             if (countInRefTable > 0)
             {
@@ -80,7 +80,7 @@ namespace PPPROGMA.Classes.CRUD.Service
         {
             using (DbConnection DB = new DbConnection())
             {
-                return DB.transports.Include(x => x.Sprav_Transport_type).Where(x => x.idTransport == id).ToList();
+                return DB.transports.Include(x => x.Sprav_Transport_type).Where(x => x.idSprav_Transport_type == id).ToList();
             }
         }
 

@@ -50,7 +50,7 @@ namespace WindowsFormsApp1
         private void DeleteButton_Click(object sender, EventArgs e)
         {
             int id;
-            if (!int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            if (dataGridView2.RowCount == 0 || !int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
             {
                 Utils.Error("Невозможно удалить пустую строку");
                 return;
@@ -75,7 +75,7 @@ namespace WindowsFormsApp1
         private void ChangeButton_Click(object sender, EventArgs e)
         {
             int id;
-            if (!int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
+            if (dataGridView2.RowCount == 0 || !int.TryParse(dataGridView2.CurrentRow.Cells["id"].Value.ToString(), out id))
             {
                 Utils.Error("Невозможно изменить пустую строку");
                 return;

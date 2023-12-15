@@ -137,18 +137,18 @@ namespace WindowsFormsApp1
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(92, 83);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(51, 18);
+            this.label2.Size = new System.Drawing.Size(193, 18);
             this.label2.TabIndex = 11;
-            this.label2.Text = "label2";
+            this.label2.Text = "Название общей услуги";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(92, 158);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(51, 18);
+            this.label3.Size = new System.Drawing.Size(201, 18);
             this.label3.TabIndex = 12;
-            this.label3.Text = "label3";
+            this.label3.Text = "Стоимость общей услуги";
             // 
             // maskedTextBox1
             // 
