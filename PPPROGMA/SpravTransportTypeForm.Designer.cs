@@ -121,6 +121,7 @@ namespace WindowsFormsApp1
             this.id.DataPropertyName = "idSprav_Transport_type";
             this.id.HeaderText = "Column1";
             this.id.Name = "id";
+            this.id.ReadOnly = true;
             this.id.Visible = false;
             // 
             // SpravName
@@ -128,6 +129,7 @@ namespace WindowsFormsApp1
             this.SpravName.DataPropertyName = "Sprav_Transport_typecol";
             this.SpravName.HeaderText = "Название типа";
             this.SpravName.Name = "SpravName";
+            this.SpravName.ReadOnly = true;
             this.SpravName.Width = 300;
             // 
             // AddButton

@@ -37,11 +37,11 @@ namespace WindowsFormsApp1
             this.AddButton = new System.Windows.Forms.Button();
             this.ReturnButton = new System.Windows.Forms.Button();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
-            this.label2 = new System.Windows.Forms.Label();
             this.ID = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.ColName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Price = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.numericUpDown1 = new System.Windows.Forms.NumericUpDown();
+            this.label2 = new System.Windows.Forms.Label();
             this.pnlBorder.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -146,22 +146,6 @@ namespace WindowsFormsApp1
             this.dataGridView1.Size = new System.Drawing.Size(459, 491);
             this.dataGridView1.TabIndex = 7;
             // 
-            // numericUpDown1
-            // 
-            this.numericUpDown1.Location = new System.Drawing.Point(471, 350);
-            this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
-            this.numericUpDown1.TabIndex = 8;
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(468, 329);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(119, 18);
-            this.label2.TabIndex = 9;
-            this.label2.Text = "Колличество :";
-            // 
             // ID
             // 
             this.ID.HeaderText = "Column1";
@@ -182,6 +166,22 @@ namespace WindowsFormsApp1
             this.Price.Name = "Price";
             this.Price.ReadOnly = true;
             this.Price.Width = 200;
+            // 
+            // numericUpDown1
+            // 
+            this.numericUpDown1.Location = new System.Drawing.Point(471, 350);
+            this.numericUpDown1.Name = "numericUpDown1";
+            this.numericUpDown1.Size = new System.Drawing.Size(120, 26);
+            this.numericUpDown1.TabIndex = 8;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(468, 329);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(119, 18);
+            this.label2.TabIndex = 9;
+            this.label2.Text = "Колличество :";
             // 
             // SelectListForm
             // 

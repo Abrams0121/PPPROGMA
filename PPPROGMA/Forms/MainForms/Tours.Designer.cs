@@ -89,9 +89,9 @@ namespace WindowsFormsApp1
             this.label1.Location = new System.Drawing.Point(0, 0);
             this.label1.Margin = new System.Windows.Forms.Padding(0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(151, 18);
+            this.label1.Size = new System.Drawing.Size(47, 18);
             this.label1.TabIndex = 2;
-            this.label1.Text = "Название таблицы";
+            this.label1.Text = "Туры";
             // 
             // BtnClose
             // 
@@ -330,7 +330,7 @@ namespace WindowsFormsApp1
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(1125, 279);
+            this.label5.Location = new System.Drawing.Point(1105, 294);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(236, 18);
             this.label5.TabIndex = 15;
